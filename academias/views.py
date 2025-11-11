@@ -822,16 +822,31 @@ class EvolucaoFinal(TemplateView):
 
 
 # criando receiver para quando academia for criada, atualizada ou deletada
+# @receiver(post_save, sender=Academia)
+# def create_user(sender, instance, created, **kwargs):
+#     if created:
+#         user = User.objects.create_user(username=instance.cnpj, password=instance.senha)
+#         user.save()
+
+#     else:
+#         user = User.objects.get(username=instance.cnpj)
+#         user.set_password(instance.senha)
+#         user.save()
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+import sys
+
 @receiver(post_save, sender=Academia)
 def create_user(sender, instance, created, **kwargs):
-    if created:
-        user = User.objects.create_user(username=instance.cnpj, password=instance.senha)
-        user.save()
+    # Evitar que se ejecute durante la carga de fixtures (loaddata)
+    if 'loaddata' in sys.argv:
+        return
 
-    else:
-        user = User.objects.get(username=instance.cnpj)
-        user.set_password(instance.senha)
-        user.save()
+    if created:
+        from django.contrib.auth.models import User
+        # Crear solo si no existe un usuario con ese mismo username
+        if not User.objects.filter(username=instance.cnpj).exists():
+            User.objects.create_user(username=instance.cnpj, password=instance.senha)
 
 
 @receiver(post_delete, sender=Academia)
