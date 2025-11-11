@@ -1,0 +1,184 @@
+{% load static %}
+<style>
+  body {
+    padding-top: 90px; 
+  }
+  
+  .navbar-container {
+    width: 100%;
+    background: #2b6ca3;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 5px solid rgb(255, 93, 93);
+  }
+
+  .navbar-content {
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6vh;
+  }
+
+  .navbar-logo {
+    height: 60px;
+    width: auto;
+    margin-left: 5px;
+  }
+  
+  .navbar-right .nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-right .nav-list li a,
+  .navbar-right .nav-list li button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 8px 5px;  
+    transition: all 0.3s ease;
+  }
+
+  .navbar-right .nav-list li a::after,
+  .navbar-right .nav-list li button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .navbar-right .nav-list li a:hover,
+  .navbar-right .nav-list li button:hover {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .navbar-right .nav-list li a:hover::after,
+  .navbar-right .nav-list li button:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menus {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;      
+    margin-right: 30px;    
+    margin-left: 40px;      
+    align-items: flex-end;
+  }
+  
+  .mobile-menus i {
+    color: #fff !important;
+  }
+  
+  /* --- Mobile + Tablet --- */
+  @media (max-width: 1024px) {
+    .navbar-right .nav-list {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: auto;
+      max-height: 90vh;   
+      background: #2b6ca3;
+      padding: 100px 20px 20px;
+      transition: right 0.3s ease;
+      z-index: 99999;
+    }
+  
+    .navbar-right .nav-list.active {
+      right: 0;
+    }
+  
+    .navbar-right .nav-list li {
+      margin-bottom: 12px;  
+    }
+
+    .mobile-menus {
+      display: flex;
+    }
+  }
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<header style="position: fixed; width: 100vw; z-index: 9999999999999">
+  <nav class="navbar-container">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <img src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png" 
+             alt="Logo Nutrição Esportiva" 
+             class="navbar-logo">
+      </div>
+
+      {% if not is_termos %}
+      <div class="navbar-right">
+        <ul class="nav-list">
+          <li><a href="/">Início</a></li>
+          <li class="li-plano-alimentar"><a href="{% url 'baixar_avaliacao' %}">Plano Alimentar</a></li>
+          <li class="li-material-apoio"><a href="{% url 'material_apoio' %}">Material de Apoio</a></li>
+          <li class="li-material-apoio"><a href="">Contato</a></li>
+          <li><a href="{% url 'logout' %}">Sair</a></li>
+        </ul>
+      </div>
+      {% endif %}
+  
+      <div class="mobile-menus">
+        <i class="fa-solid fa-bars fa-2x"></i>
+      </div>
+    </div>
+  </nav>
+  
+  <script src="{% static 'core/javascript/mobile.js' %}"></script>
+  <script>
+    $(document).ready(function(){
+      $(".mobile-menus").click(function(){
+        $(".nav-list").toggleClass("active");
+      });
+  
+      $(window).resize(function(){
+        if($(window).width() > 768){
+          $(".nav-list").removeClass("active").css("display","flex");
+        } else {
+          $(".nav-list").css("display","");
+        }
+      });
+    });
+  </script>
+</header>
+
+{% comment %} <p id="faixa-v" style="height: 30px; background-color: rgb(255, 93, 93);"></p> {% endcomment %}
+
+<div id="flut"
+  style="padding: 20px;position: fixed; z-index: 9999; top: 90px; right: -600px; background-color: #2b6ca3">
+  <a style="padding: 12px" href="mailto:contato@nutricaoeesporte.com.br">
+    <i class="fa fa-solid fa-at fa-2x text-light"></i>Email
+  </a>
+  <br><br>
+  <a style="padding: 12px" class="my-2" href="https://web.whatsapp.com/send?phone=5511987707556" target="_blank">
+    <i class="fa fa-brands fa-whatsapp fa-2x text-light"></i>Whatsapp
+  </a>
+</div>

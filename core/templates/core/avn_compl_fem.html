@@ -1,0 +1,1752 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>{{ titulo|default:"Informe" }}</title>
+  <style>
+    /* --- Página A4 y numeración --- */
+    @page {
+      size: A4;
+      margin: 0mm 0mm 5mm 0mm;       
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN_Port.jpeg") no-repeat center center;
+      background-size: cover;
+    }
+    @page:first {
+      background-size: cover;
+    }
+
+    /* --- Reset mínimo --- */
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { height: 100%; }
+    body { font-family: sans-serif; font-size: 12px; color: #111; margin: 0; }
+
+    /* --- Utilidades --- */
+    .page-break { page-break-before: always; }
+    .avoid-break { page-break-inside: avoid; }
+
+    /* --- PORTADA --- */
+    .cover{
+      min-height: calc(100vh - 38mm);   
+      display: grid;
+      grid-template-rows: 75% 25%;      
+    }
+    .cover__stack{
+      grid-row: 2;                      
+      place-self: center;              
+      text-align: center;
+    }
+
+
+    @page page2 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img2RE.jpeg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    
+    /* --- Página 3 --- */
+    @page page3 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/EVN+Feminina2.jpg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    
+    /* --- Página 4 --- */
+    @page page4 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/imagenM4.jpeg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    
+    /* --- Página 5 --- */
+    @page page5 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+
+    @page page6 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    @page page7 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    @page page8 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+    /* --- Página 9 --- */
+    @page page9 {
+      size: A4;
+      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img5RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      @top-right {
+        content: element(run-hdr);    /* inyecta el header en @top-right */
+        vertical-align: top;
+      }
+    }
+
+
+    .run-hdr {
+      position: running(run-hdr);
+      text-align: right;
+      padding-top: 10mm;
+      padding-right: 10mm;
+    }
+    
+    .logo-medico {
+      width: 65mm;   
+      height: auto;
+    }
+    
+    .with-header {
+      page: pageHdr;
+    }
+    
+    .page-break { page-break-before: always; }
+    
+    /*********PAG2  TABLA 1********/
+    .bloco0 {
+      position: relative;
+      background: #ffffff;           
+      border-radius: 12px;
+      padding: 20px 10px 10px 10px;  /* espacio para el título */
+      width: 75%;
+      min-height: 20mm;
+      text-align: left;
+      box-sizing: border-box;
+      overflow: visible;              
+    }
+    
+    .bloco-titulo-capsula {
+      position: absolute;
+      top: 0px;                     /* lo eleva sobre el bloco */
+      left: 50%;
+      transform: translateX(-50%);    
+      color: #fff;
+      border-radius: 9999px;
+      padding: 10px 10px;
+      font-size: 11pt;
+      font-weight: 600;
+      text-align: center;
+      width: 600px;                   /* ancho fijo, ajustable */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+    
+    .bloco-conteudo {
+      font-size: 11pt !important;
+      color: #333;
+      margin-top: 0px;
+      line-height: 1.5;
+    }
+    .bloco-1 {
+      position: relative;
+      background: #ffffff;           
+      border-radius: 12px;
+      padding: 20px 10px 10px 10px;  /* espacio para el título */
+      width: 75%;
+      min-height: 20mm;
+      text-align: left;
+      box-sizing: border-box;
+      overflow: visible;              
+    }
+  
+    .bloco-conteudo-1 {
+      font-size: 11pt !important;
+      color: #333;
+      margin-top: 0px;
+      line-height: 1.5;
+      border: 2px solid #e0e6ee;
+      padding: 20px 10px 10px 10px    }
+
+    .bloco-ideal {
+      position: relative;     
+      margin: 0mm auto 0 auto;
+      width: 75%;
+    }
+    
+    /* 🔹 Cápsula roja */
+    .bloco-titulo-ideal {
+      position: relative;     
+      background: #FF6B6B;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+      font-size: 12pt;
+      margin-bottom: -10px;   
+      z-index: 3;             
+    }
+    
+    .peso-circulo {
+      position: absolute;
+      top: -25px;
+      right: -45px;
+      background: #2f6fa3;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 4;
+    }
+    
+    .bloco-conteudo-ideal {
+      position: relative;    
+      margin-top: 0;
+      border: 2px solid #e0e6ee;
+      border-radius: 10px;
+      background: #f8f9fb;
+      padding: 8px 5px;
+      color: #333;
+      font-size: 11pt;
+      line-height: 1.5;
+      z-index: 1;          
+    }
+    
+    .texto-azul {
+      color: #2f6fa3;
+      font-weight: 600;
+    }
+    
+    .peso-label{
+      color: #FF6B6B;
+      font-weight: 600;
+      font-size: 11pt;
+    }
+    .peso-numero{
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15pt;
+    }
+    .peso-circulo-texto {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      white-space: nowrap;
+    }
+
+    .bloco-2 {
+      position: relative;
+      margin: 0mm auto 0 auto;
+      width: 75%;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      padding: 20px 25px;
+    }
+    
+    .bloco-2 .bloco-conteudo {
+      font-size: 11pt;
+      color: #333;
+      line-height: 1.6;
+      text-align: justify;
+      font-weight: 400;
+    }
+
+    .bloco-ideal1 {
+      position: relative;
+      margin: 0mm auto 0 auto;
+      width: 75%;
+    }
+    
+    .bloco-conteudo-ideal1 {
+      margin-top: 0;
+      border-radius: 10px;
+      padding: 0px 18px;
+      color: #333;
+      font-size: 11pt;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom:5mm;
+      margin-top:5mm;
+    }
+    
+    .texto-azul {
+      color: #2f6fa3;
+      font-weight: 600;
+    }
+ 
+    /*********PAG2  TABLA 2********/
+
+    .capsula-esq {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+     .capsula-info {
+      background: #e5e7eb;
+      color: #1e3a8a;
+      font-size: 11pt;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 6px 18px;
+      text-align: center;
+      min-width: 120px;
+    }
+    
+    .capsula-info .label {
+      font-weight: 600;
+    }
+    
+    .capsula-info .valor {
+      font-weight: 700;
+    }
+    
+    /*  Cápsula invisible (espacio visual) */
+    .capsula-espacio {
+      width: 25px;              /* 🔹 Ajustá este valor para más o menos separación */
+    }
+
+    .tabla-riscos-wrap3 {
+      width: 75%;
+      max-width: 750px;              /* 🔹 un poco más ancho para balancear columnas */
+      margin: 12mm auto;
+      position: relative;
+    }
+    
+    .tabla-riscos-table {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    
+    .tabla-riscos {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font: 500 12px "Segoe UI", Roboto, sans-serif;
+      color: #344256;
+      table-layout: fixed;
+    }
+    
+    /* 🔹 Encabezado */
+    .tabla-riscos thead th {
+      background: #2f6fa3;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 0;
+      border-right: 1px solid #e0e6ee;
+      font-size: 11pt;
+    }
+    .tabla-riscos thead th:first-child {
+      background: #2b6ca3;
+      text-align: left;
+      padding-left: 12px;
+      width: 22%;                     /* 🔹 Columna izquierda (nombre) más ancha */
+    }
+    
+    /* 🔹 Celdas del cuerpo */
+    .tabla-riscos tbody td {
+      border: 1px solid #e5eaf0;
+      padding: 6px;
+      font-size: 10.5pt;
+    }
+    .tabla-riscos tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      background: #f3f6fa;
+      padding-left: 12px;
+    }
+    
+    /* 🔹 Alternancia de fondo */
+    .tabla-riscos tbody tr:nth-child(odd) td {
+      background: #fafbfc;
+    }
+    .tabla-riscos tbody tr:nth-child(even) td {
+      background: #fff;
+    }
+    
+    /* 🔹 Leyenda inferior */
+    .tabla-riscos-leyenda {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 10pt;
+      color: #444;
+    }
+    .tabla-riscos-leyenda strong {
+      color: #2f6fa3;
+    }
+
+  /*********PAG2  TABLA 3********/
+  .tabla-riscos-wrap3 {
+    width: 80%;              
+    max-width: 700px;
+    margin: 0 auto 15mm auto; 
+  }
+
+  .tabla-riscos-inner {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .tabla-riscos-table {
+    flex: 0 0 72%;
+  }
+  
+  .tabla-riscos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #e0e6ee;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .tabla-riscos thead th {
+    background: #2f6fa3;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  
+  .tabla-riscos td:first-child,
+  .tabla-riscos th:first-child {
+    width: 26%;
+    text-align: left;
+    color: #2f6fa3;
+    font-weight: 600;
+    padding-left: 10px;
+  }
+
+  .tabla-riscos th:not(:first-child),
+  .tabla-riscos td:not(:first-child) {
+    width: calc((100% - 26%) / 9); /* 🔹 divide el resto equitativamente (para 9 columnas C1–C9) */
+  }
+
+  .tabla-riscos th,
+.tabla-riscos td {
+  padding: 8px 8px;
+}
+  
+  .tabla-riscos tbody tr:nth-child(odd) {
+    background: #f3f4f6;
+  }
+  .tabla-riscos tbody tr:nth-child(even) {
+    background: #ffffff;
+  }
+    
+  .tabla-riscos-info {
+    flex: 0 0 28%;
+    text-align: right;
+  }
+  .tabla-riscos-info p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+  }
+  
+  /* ==========================================================
+    PAG 3 RC-RESUMO DE RESULTADOS 
+    ========================================================== */
+
+.box-resultados {
+  padding: 16px 20px;
+  margin-top: -10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.RC-resumo-img {
+  flex: 0 0 35%;
+  text-align: center;
+}
+
+.RC-resumo-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.RC-resumo-dados {
+  flex: 0 0 65%;
+}
+
+.RC-titulo,
+.RC-subtitulo {
+  border-radius: 9999px;
+  text-align: center;
+  font-weight: 700;
+  padding: 10px 0;
+  margin: 10px auto;
+}
+
+.RC-titulo {
+  background: #636363;
+  color: #fff;
+  font-size: 12pt;
+  margin-top: 55mm;
+}
+
+.RC-subtitulo {
+  background: #2f6fa3;
+  color: #fff;
+  font-size: 12pt;
+}
+
+
+.capsula-grupo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0; /* mismo top y bottom */
+  border-radius: 100px;
+}
+
+.capsula-esq {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  height: 70px; /* altura uniforme */
+}
+
+.capsula-info {
+  font-size: 11pt;
+  font-weight: 600;
+  line-height: 1.2;
+  position:relative;
+  background:#f3f4f6;
+  border-radius:9999px;
+  padding:15px 10px;
+  text-align:center;
+  color:#2f6fa3;
+  margin-bottom: 20px;
+}
+
+.capsula-info .label {
+  font-weight: 700;
+}
+
+.capsula-espacio {
+  width: 10px;
+}
+
+.capsula-der {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 15pt;
+  border-radius: 9999px;
+  text-align: center;
+  padding: 0px 80px !important;
+  height: 100px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+
+  .capsula-container1 {
+    display: flex !important;
+    justify-content: center !important;       /* centra horizontalmente dentro del ancho disponible */
+    align-items: center !important;           /* centra verticalmente */
+    border-radius: 50px !important;
+    overflow: visible !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
+    width: 75% !important;
+    margin: 0 auto !important;                /* centra respecto al contenedor padre */
+    margin-top: 4px !important;   
+    justify-content: flex-start !important;
+    transform: translateX(60px) !important;            /* leve separación del título azul */
+  }
+  
+  
+  .capsula-gris1 {
+    background: #f5f5f5 !important;
+    z-index: 2 !important;                    /* 🔹 por encima de la verde */
+    position: relative !important;
+    border-radius: 50px 50px 50px 50px !important;
+    padding: 0px 44px !important;            /* 🔹 más ancha y alta */
+    flex: 1 !important;
+    margin-right: -35px !important;           /* 🔹 se monta sobre la verde */
+    height: 18mm !important;                  /* 🔹 crece proporcionalmente */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color:#2f6fa3 ! important;
+    font-size: 13pt !important;
+    font-weight: 700 !important;
+  }
+  
+
+  .capsula-verde1 {
+    background: #A6D96A !important;
+    border-radius: 0 50px 50px 0 !important;
+    padding: 0px 44px !important;            /* 🔹 más ancha y alta */
+    flex: 1 !important;
+    height: 18mm !important;
+    width: 30mm !important;                   /* 🔹 crece proporcionalmente */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color:#fff ! important;
+    font-size: 15pt !important;
+    font-weight: 700 !important;
+
+  }
+  
+  /* ==========================================================
+  PAG 4 RC-RESUMO DE RESULTADOS 
+  ========================================================== */
+
+.capsula-container-full {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  max-width: 600px; 
+  margin: 43mm auto 0 25mm;
+  font-weight: 600;
+  font-size: 11pt;
+  color: #1e3a8a;
+  justify-content: center; 
+}
+
+.titulo-etapas-pag4 {
+  text-align: center;
+  color: #404040;
+  font-weight: 400;
+  font-size: 11pt;
+  line-height: 1.1;
+  margin-top: 12px;
+}
+
+.capsula-izq-full {
+  background: #2b6ca3;
+  padding: 10px 24px;
+  border-radius: 50px 50px 50px 50px;
+  z-index: 2;
+  position: relative;
+  color:#ffffff;
+}
+
+.capsula-der-full {
+  background: #d2d2d2;
+  padding: 10px 24px;
+  border-radius: 0 50px 50px 0;
+  flex: 1; 
+  margin-left: -20px; 
+  z-index: 1;
+  text-align: center; 
+  color:#3465a4;
+}
+
+.tabela-meta table {
+  width: 75%;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10pt;
+  text-align: center;
+  margin: 2mm auto 0 25mm;
+  table-layout: fixed;
+}
+
+.tabela-meta th {
+  background-color: #f66c6c;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  padding: 6px 3px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+
+.tabela-meta td {
+  border: 1px solid #ddd;
+  padding: 4px 3px;
+  height: 20px;
+  vertical-align: middle;
+  background-color: #ffffff;
+}
+.tabela-meta tr:nth-child(even) td {
+background-color: #f8f8f8;
+}
+.tabela-meta tr:nth-child(even) td.meta,
+.tabela-meta tr:nth-child(odd) td.meta {
+background-color: #2b6ca3 !important;
+color: #fff !important;
+} 
+.tabela-meta th {
+background-color: #f66c6c;
+color: white;
+font-weight: 600;
+}
+
+.tabela-meta td.meta {
+background-color: #2b6ca3;
+color: #fff;
+font-weight: 500;
+border: 1px solid #ddd;  /* ✅ asegura borde igual que las demás */
+height: 22px;
+padding: 4px 3px;
+text-align: center;
+vertical-align: middle;
+}
+
+.tabela-meta td.status {
+font-weight: 700;
+color: #111;
+}
+.tabela-meta th,
+.tabela-meta td {
+width: calc(100% / 6);
+}
+
+/* ==========================================================
+PAG 5 RC-RESUMO DE RESULTADOS 
+========================================================== */
+.bloco-5 {
+  width: 80%;
+  margin: 0 auto;
+  gap: 25px;  
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
+/* 🔵 título azul + círculo rojo */
+.titulo-secao5 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.capsula-titulo {
+  background: #2f6fa3;
+  color: #fff;
+  font-weight: 700;
+  font-size: 11pt;
+  border-radius: 50px;
+  padding: 6px 25px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.circulo-numero {
+  background: #ff6b6b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14pt;
+  border-radius: 50%;
+  width: 41px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-5%, -50%);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 BLOCO VISUAIS - texto e imagem lado a lado */
+.conteudo-secao5 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.texto-secao5 {
+  flex: 1.4;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 11pt;
+  line-height: 1.5em;
+  margin-left: 20px;
+}
+
+.imagem-secao5 {
+  flex: 1.1;                        /* 🔹 le da un poco más de espacio */
+  display: flex;                    /* 🔹 para centrar vertical y horizontalmente */
+  align-items: center;
+  margin-top: 10px;  
+  margin-left: -18mm;   
+  margin-right: 30px;  
+}
+
+.imagem-secao5 img {
+  width: 60%;                       /* 🔹 más grande dentro del bloque */
+  max-width: 310px;                 /* 🔹 tope razonable para no romper layout */
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  display: block;
+    z-index: 3;   
+
+
+}
+
+.imagem-dupla {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+
+}
+
+.imagem-dupla img {
+  width: 320px;                   /* 🔹 ancho total de la imagen doble */
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  align-item:center;
+  margin: 0 auto;  
+}
+
+/* 🔴🔵 Cápsulas */
+.capsula-inferior {
+  font-weight: 700;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 30px;
+  font-size: 12pt;
+  position: absolute;
+             /* 🔹 debajo de la imagen */
+  transform: translateX(-50%);
+  bottom: 25mm;     
+}
+
+/* 🔴 Cápsula izquierda */
+.capsula-inferior.vermelha {
+  background: #ff6b6b;
+  left: 20%;                      /* 🔹 centrada sobre la mitad izquierda */
+  border: 1px solid #ddd;  /* ✅ asegura borde igual que las demás */
+}
+
+/* 🔵 Cápsula derecha */
+.capsula-inferior.azul {
+  background: #2f6fa3;
+  left: 80%;                      /* 🔹 centrada sobre la mitad derecha */
+  border: 1px solid #ddd;  /* ✅ asegura borde igual que las demás */
+}
+
+/* ==========================================================
+PAG 7 RC-RESUMO DE RESULTADOS 
+========================================================== */
+/* 🔹 Estructura general */
+.pagina-nutricao {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 20mm auto;
+  width: 80%;
+}
+
+
+.titulo-capsula {
+  background: #2f6fa3;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 8px 15px;
+  display: inline-block;
+  font-size: 12pt !important;
+}
+
+
+.bloco-dietetica {
+  border-radius: 10px;
+  padding: 25px 20px;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-capsula7{
+  background: #a1a1a1;
+  color: #fff;
+  font-weight: 700;
+  font-size: 11pt;
+  border-radius: 50px;
+  padding: 8px 25px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.texto-intro {
+  font-size: 11.5pt;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+/* 🔸 Recuadro blanco */
+.box-limites {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 5mm;
+  font-size: 11pt;
+  line-height: 1.4;
+
+}
+
+.box-limites .extra {
+  background: #ff6b6b;
+  color: #fff;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.img-frutas {
+  position: absolute;
+  top: 80px;                    /* 🔹 sube la fruta para superponer sobre el borde */
+  right: 30px;                   /* 🔹 la coloca en el borde derecho */
+  width: 140px;                  /* 🔹 ajustá tamaño a gusto */
+  height: auto;
+  z-index: 2;                    /* 🔹 la pone encima del bloque */
+}
+
+.bloco-orientacoes {
+  padding: 5mm ;
+
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 10px;
+  
+}
+
+.item .numero {
+  background: #ff6b6b;
+  color: #fff;
+  font-weight: 700;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  flex-shrink: 0;
+}
+
+.item p {
+  margin: 0;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 11.5pt;
+  margin-left: 10px;
+}
+
+
+.relatorio-capa {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+.bloque-der {
+  width: 50%;             
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;     
+  align-items: center;
+}
+
+.bloque-der .titulo-azul {
+  display: block;        
+  width: 100%;           
+  background: #2f6fa3;
+  border-radius: 9999px;
+  padding: 12px 0px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 0px 0;     
+  font-size: 14px;
+  flex-direction: column;  
+}
+
+.bloque-izq {
+  width: 50%;       
+  padding: 20px;    
+  box-sizing: border-box;
+}
+
+.bloque-izq .titulo-azul {
+  display: block;         
+  width: 100%;           
+  background: #2f6fa3;
+  border-radius: 9999px;
+  padding: 12px 0px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 0px 0;     
+  font-size: 14px;
+  flex-direction: column;  
+}
+
+.capsula-container {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  justify-content: center; 
+}
+
+.capsula {
+  font-weight: 600;
+  font-size: 11pt;
+  padding: 8px 24px;
+  color: #1e3a8a;
+}
+
+.capsula-gris {
+  background: #f5f5f5;
+  z-index: 1;
+  margin-right: -30px; 
+  position: relative;
+  border-radius: 50px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.capsula-verde {
+  background: #a6d96a;
+  margin-right: -20px;
+  border-radius: 50px;
+  padding: 8px 38px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.capsula-lado-der {
+  flex: 1;
+  border-radius: 50px; 
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px; 
+  height: 90%; 
+}
+
+.bloco {
+  position: relative;
+  background: #f3f3f3;           
+  border-radius: 12px;
+  padding: 25px 20px 20px 20px;
+  width: 75%;
+  min-height: 25mm;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: visible;              
+}
+
+/* 🔹 Título flotante y centrado */
+.bloco-titulo {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2f6fa3;           
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 8px 28px;
+  font-size: 12pt;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  width: 60%;
+}
+
+.bloco-conteudo {
+  font-size: 12pt;
+  color: #333;
+  margin-top: 10px;
+}
+
+.rodape {
+  width: 75%;
+  margin: 10mm auto auto 25mm;
+  text-align: left;
+  font-size: 11pt;
+  color:#000000;
+}
+
+.rodape p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.assinatura {
+  width: 120px;
+  margin-left: 10px;
+} 
+  </style>
+
+  </head>
+  <body>
+    <!-- Contenido de la PÁGINA 1 -->
+  <section style="height:259mm; margin:0; padding:0;">
+    <div style="height:194.25mm;"></div>
+    <div style="
+      height:64.75mm;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; margin:0; padding:0;
+    ">
+      <div style="max-width:120mm;">
+        <div style="font-size:20px; font-weight:600; margin:50mm 0 10mm 0; color:#ffffff;">
+          Evolução de:
+        </div>
+        <div style="
+          display:inline-block; padding:6mm 10mm; margin:0 0 8mm 0;
+          border:1px solid #e5e7eb; border-radius:9999px; background:#fff;
+          font-size:14px; font-weight:700; min-width:90mm; line-height:1.15;
+        ">
+          {{ nome_pessoa }}  {{ sobrenome_pessoa }}
+        </div>
+        <div style="font-size:10px; color:#ffffff; line-height:1.35; font-weight:600;">
+          Israel Adolfo<br>
+          Nutricionista do Esporte<br>
+          Cel: (11) 98770.7556
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Contenido de la PÁGINA 2 -->
+  <section class="page-break with-header"style="page: page2">
+    <div class="run-hdr">
+      <img
+        src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+        alt="Logo Nutrição Esportiva"
+        class="logo-medico">
+    </div>
+    <div class="relatorio-capa">    
+      <div class="bloco0" style="margin:50mm auto 0 auto; position:relative;">
+        <div class="bloco-titulo-capsula"style="  background: #2f6fa3;">
+          Em primeiro lugar
+        </div>
+        <div class="bloco-conteudo">
+          <br>
+          Nada do que eu escrever durante o acompanhamento é pessoal, e sim para manter você no caminho do resultado. 
+          Você me pagou para planejar sua alimentação. Portanto, não siga o que sua cabeça ACHAR, e sim o que eu DEFINIR. 
+          Sendo assim, se tiver dúvida, me pergunte. Preste muita atenção nas orientações, pois o que mais vejo no dia a dia 
+          são erros por falta de atenção.
+          <br><br><br>
+        </div>     
+      </div>
+      <div class="bloco-ideal">
+        <div class="bloco-titulo-ideal">
+          PESO IDEAL
+        </div>
+      
+        <div class="peso-circulo">
+          <div class="peso-circulo-texto">
+            <span class="peso-label">Peso Atual:</span>
+            <span class="peso-numero">{{ peso }} kg</span>
+          </div>
+        </div>
+      
+        <div class="bloco-conteudo-ideal">
+          <p>
+            Em relação à <span class="texto-azul">MASSA MAGRA</span>: apresenta-se 
+            <span class="texto-azul">{{ massa_media|upper }}</span> em relação a pessoas da mesma idade 
+            e sexo com percentual de gordura ideal;
+          </p>
+          <p>
+            Em relação à <span class="texto-azul">% GORDURA</span>: apresenta-se 
+            <span class="texto-azul">{{ per_gordura|upper }}</span> da normalidade 
+            para pessoas de mesma idade e sexo.
+          </p>
+        </div>        
+      </div>        
+      <div class="bloco-ideal1">        
+        <div class="bloco-conteudo-ideal1">
+          <p>
+            O <strong>peso ideal médio</strong> para pessoas de mesma idade 
+            (<span class=""><strong>{{ idade }}</strong></span>), com altura de 
+            <span class=""><strong>{{ altura|floatformat:2 }}</strong></span> m e sexo masculino 
+            estaria entre <span class=""><strong>{{ peso_ideal_min }}</strong></span> e 
+            <span class=""><strong>{{ peso_ideal_max }}</strong></span> kg, 
+            sem considerar massa óssea desenvolvida.
+          </p>
+          {% if percentual_gordura_real < percentual_gordura_ideal %}
+          <p>
+
+            <br>
+            O <strong>PESO ATUAL</strong> pode ser considerado<strong> IDEAL</strong>
+          <br>
+          <br>
+          <br>
+          </p>
+        {% else %}
+          <p>
+            Para chegarmos ao seu peso ideal, vamos ao menos manter a massa magra
+            e trazer o percentual de gordura para
+            <strong>NORMAL ({{ percentual_gordura_ideal }}%)</strong>,
+            o que daria um peso por volta de
+            <strong>{{ peso_ideal|floatformat:1 }} kg</strong>
+            (sem considerar ganho de massa magra).
+          </p>
+        {% endif %}
+        </div>
+      </div>      
+    </div>  
+    <div style="position:relative;z-index:99999;background:#2f6fa3;border-radius:9999px;
+    padding:12px 20px;text-align:center;width:600px;margin:15px auto;color:#fff; font-weight:700;">
+    RISCOS PREDITOS POR CIRCUNFERÊNCIAS
+    </div>
+    <div class="tabla-riscos-wrap3">
+      <div class="tabla-riscos-inner">
+        <div class="tabla-riscos-table">
+          <table class="tabla-riscos">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>C3</th>
+                <th>C4</th>
+                <th>C5</th>
+                <th>C6</th>
+                <th>C7</th>
+                <th>C8</th>
+                <th>C9</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Abdomen</td>
+                <td>{{ riscos_abdomen }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Cintura</td>
+                <td>{{ riscos_cintura }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Quadril</td>
+                <td>{{ riscos_quadril }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Cintura/Quadril</td>
+                <td>{{ riscos_quad_cint }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    
+          <p class="tabla-riscos-leyenda">
+            <strong class="n">N</strong> – Normal |
+            <strong class="au">AU</strong> – Aumentado |
+            <strong class="ma">MA</strong> – Muito Aumentado
+          </p>
+        </div>
+    
+        <!-- 🔹 Bloque lateral -->
+        <div class="tabla-riscos-info">
+          <p>
+            Elas predizem a probabilidade de desenvolver, a longo prazo, doenças do coração, diabetes, entre outras.
+          </p>
+         </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="page-break with-header"style="page: page3;">     
+    <div class="run-hdr">
+      <img
+        src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+        alt="Logo Nutrição Esportiva"
+        class="logo-medico">
+    </div>      
+
+    <div class="box-resultados" style="padding:16px 20px; margin-top:-10px; display:flex; gap:20px; flex-wrap:wrap;">
+      <div class="RC-resumo-img">
+        <img src="" alt="" style="border-radius:10px;">
+      </div>
+
+      <div class="RC-resumo-dados">
+        <div class="">
+          <div style="position:relative; z-index:99999; background:#636363; font-size:12pt; border-radius:9999px;
+          padding:10px 10px; text-align:center; margin-top:55mm; color:#fff;">
+          <h3 style="display:inline;">SEUS DADOS</h3>
+          </div>
+        </div>  
+        <div class="">
+          <div style="position:relative; z-index:99999; background:#2f6fa3; border-radius:9999px;
+          padding:10px 10px; text-align:center; margin:7mm auto; color:#fff;">
+          <h3 style="display:inline;">GORDURA CORPORAL</h3>
+          </div>
+        </div>                 
+        <div class="capsula-grupo">
+          <div class="capsula-esq">
+            <div class="capsula-info" >
+              <span class="label">Atual:</span> <span class="valor">{{ percentual_gordura_real }}%</span>
+            </div>
+            <div class="capsula-info">
+              <span class="label">Média:</span> <span class="valor">{{ percentual_gordura_ideal }}%</span>
+            </div>
+          </div>
+          <div class="capsula-espacio"></div>
+          <div class="capsula-der"
+          style="
+            {% if estado_per_gordura == 'EXCELENTE' or estado_per_gordura == 'MUITO BOM' or estado_per_gordura == 'BOM' %}
+              background:#A6D96A;  /* verde */
+            {% elif estado_per_gordura == 'NORMAL' %}
+              background:#2f6fa3;  /* azul */
+            {% elif estado_per_gordura == 'REGULAR' or estado_per_gordura == 'RUIM' or estado_per_gordura == 'MUITO RUIM' %}
+              background:#FF6B6B;  /* rojo */
+            {% else %}
+              background:#9ca3af;  /* gris para valores inválidos */
+            {% endif %}
+            color:#fff; font-weight:700; font-size:14pt;
+            border-radius:9999px; text-align:center;
+            padding:12px 30px; height:70px;
+            display:flex; align-items:center; justify-content:center;
+          ">
+          {{ estado_per_gordura }}
+        </div>    
+      </div>
+      <div style="position:relative; z-index:99999; background:#f3f4f6; border-radius:9999px;
+      padding:15px 15px; text-align:center; margin:10px auto; color:#2f6fa3;">
+      <h3 style="display:inline;"> Peso ESTIMADO em gordura: {{ peso_real_gordura }}Kg</h3>
+      </div>   
+      <div style="position:relative; z-index:99999; background:#f3f4f6; border-radius:9999px;
+      padding:15px 15px; text-align:center; margin:10px auto; color:#2f6fa3;">
+      <h3 style="display:inline;">  Peso IDEAL MÉDIO em gordura: {{ peso_ideal_gordura }}kg</h3>
+      </div>
+      <div style="position:relative; z-index:99999; background:#f3f4f6; border-radius:9999px;
+      padding:15px 15px; text-align:center; margin:10px auto; color:#2f6fa3;">
+      <h3 style="display:inline;">  Peso ESTIMADO em massa magra: {{ peso_real_MM }}Kg</h3>
+      </div>
+      <div class="">
+        <div class="">
+          <div style="position:relative; z-index:99999; background:#2f6fa3; border-radius:9999px;
+          padding:15px 15px; text-align:center; margin:8mm auto; color:#fff;">
+          <h3 style="display:inline;">GASTO ENERGÉTICO DIÁRIO</h3>
+          </div>
+          <div class="capsula-container1" style="">
+            <div class="capsula capsula-gris1">OMS 1998</div>
+            <div class="capsula capsula-verde1">{{ kcal_1|default:"-" }} kcal</div>
+          </div>
+        </div>     
+        <div class="">
+          <div style="position:relative; z-index:99999; background:#2f6fa3; border-radius:9999px;
+          padding:15px 15px; text-align:center; margin:8mm auto; color:#fff;">
+          <h3 style="display:inline;">VALOR CALÓRICO ADOTADO</h3>
+          </div>
+          <div class="capsula-container1" style="">
+            <div class="capsula capsula-gris1">Inicialmente</div>
+            <div class="capsula capsula-verde1">{{ kcal_2|default:"-" }} kcal</div>
+          </div>
+        </div>            
+      </div>          
+     </div>         
+  </section>
+  <!-- Contenido de la PÁGINA 4 -->
+
+  <section class="page-break with-header"style="page: page4;">     
+    <div class="capsula-container-full">
+      <div class="capsula-izq-full">FREQUÊNCIA:</div>
+      <div class="capsula-der-full">CLASSIFICAÇÃO: -/-</div>
+      <div class="logo-vo2-pag4">         
+      </div>
+    </div>
+    <div class="titulo-etapas-pag4">
+      Etapas de Diminuição do Percentual de Gordura<br>
+      e Aumento de Massa Muscular
+    </div>
+    <div class="tabela-meta">
+      <table>
+        <thead>
+          <tr>
+            <th>Meta</th>
+            <th>% Gordura</th>
+            <th>Status</th>
+            <th>Meta</th>
+            <th>% Gordura</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m1, m2 in filas_metas %}
+          <tr>
+            <td class="meta">{{ m1.num }}</td>
+            <td>{{ m1.valor }}</td>
+            <td class="status">{{ m1.estado }}</td>
+        
+            {% if m2 %}
+              <td class="meta">{{ m2.num }}</td>
+              <td>{{ m2.valor }}</td>
+              <td class="status">{{ m2.estado }}</td>
+            {% else %}
+              <td></td><td></td><td></td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+        
+      </table>
+    </div>
+    
+  </section>
+
+ <section class="page-break with-header" style="page: page5;">
+  <div class="run-hdr">
+    <img src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+         alt="Logo Nutrição Esportiva" class="logo-medico">
+  </div>
+
+  <div class="relatorio-capa" style="margin:50mm auto 0 auto; position:relative;">
+    <div class="bloco-5">
+      
+      <!-- 🔹 BLOCO 1 - VISUAIS -->
+      <div class="bloco-secao">
+        <div class="titulo-secao5">
+          <div class="circulo-numero">1</div>
+          <div class="capsula-titulo">VISUAIS</div>
+        </div>
+
+        <div class="conteudo-secao5">
+          <div class="imagem-secao5">
+            <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/plato.jpg">
+          </div>
+
+          <div class="texto-secao5">
+            <p>
+              Procure ocupar uma <strong>METADE do prato</strong> com legumes e verduras e a outra com a
+              quantidade permitida para os grupos das carnes e carboidratos. Nós somos visuais! Seu sistema
+              nervoso (SN) observa pouco alimento no prato, mesmo que este seja extremamente calórico, ele
+              demorará a desencadear o mecanismo da saciedade.
+            </p>
+            <p>
+              Por outro lado, um prato bem distribuído é considerado como um prato com calorias suficientes.
+              Sendo assim, mesmo que as quantidades de “arroz e feijão” forem poucas, assente bem os dois no
+              prato até que se distribuam bem.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔹 BLOCO 2 - MASTIGAÇÃO -->
+      <div class="bloco-secao">
+        <div class="titulo-secao5">
+          <div class="circulo-numero">2</div>
+          <div class="capsula-titulo">MASTIGAÇÃO</div>
+        </div>
+
+        <div class="texto-secao5" style="margin-top: 6px;">
+          <p>
+            MASTIGUE BEM e COMA com calma, pois assim nosso organismo proporcionará
+            <strong>SENSAÇÃO DE SACIEDADE MAIS RAPIDAMENTE</strong>, permitindo assim MATAR a fome
+            com menor quantidade de comida.
+          </p>
+          <p>
+            Cada vez que mastigamos um determinado alimento, este movimento faz com que um neurônio avise
+            ao nosso sistema nervoso que estamos comendo. Se mastigarmos BEM uma menor quantidade de
+            alimento, a saciedade é similar à de comermos um prato cheio.
+          </p>
+        </div>
+
+        <div class="imagem-dupla">
+          <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/massac.png" alt="Mastigação e Saciedade">
+        
+          <div class="capsula-inferior vermelha">Mastigação</div>
+          <div class="capsula-inferior azul">Saciedade</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+
+ <section class="page-break with-header" style="page: page6;">
+    <div class="run-hdr">
+      <img src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          alt="Logo Nutrição Esportiva" class="logo-medico">
+    </div>  
+    <div class="relatorio-capa" style="margin:45mm auto 0 auto; position:relative;">
+      <div class="bloco-5">       
+              <!-- 🔹 BLOCO 2 - MASTIGAÇÃO -->
+        <div class="bloco-secao">
+          <div class="titulo-secao5">
+            <div class="circulo-numero">3</div>
+            <div class="capsula-titulo">MECÂNICOS</div>
+          </div>
+  
+          <div class="texto-secao5" style="margin-top: 6px;">
+            <p>
+              Existem alimentos que ajudam na saciedade por pesarem no seu estômago. As fibras dos folhosos e vegetais tem a capacidade de absorver várias vezes seu peso em água, fazendo assim peso extra no estômago. Esta informação também é levada ao sistema nervoso.
+            </p>     
+          </div>  
+          <div class="imagem-dupla" style="text-align:center;">
+            <img 
+              src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img-1-6.png" 
+              alt="Mastigação e Saciedade"
+              style="width:480px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
+          </div>
+      </div>
+    </div>
+    <div class="relatorio-capa" style="margin:0mm auto 0 auto; position:relative;">
+      <div class="bloco-5">       
+              <!-- 🔹 BLOCO 2 - MASTIGAÇÃO -->
+        <div class="bloco-secao">
+          <div class="titulo-secao5">
+            <div class="circulo-numero">4</div>
+            <div class="capsula-titulo">TIPOS DE ALIMENTO</div>
+          </div>
+  
+          <div class="texto-secao5" style="margin-top: 6px;">
+            <p>
+              Não basta consumir a quantidade adequada de fibras, mastigá-las corretamente fará com que o hormônio da saciedade seja liberado mais rapidamente e, via corrente sanguínea, seja levado ao sistema nervoso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relatorio-capa" style="margin:0mm auto 0 auto; position:relative;">
+      <div class="bloco-5">       
+        <div class="bloco-secao">
+          <div class="titulo-secao5">
+            <div class="circulo-numero">5</div>
+            <div class="capsula-titulo">SEDE</div>
+          </div>
+  
+          <div class="texto-secao5" style="margin-top: 6px;">
+            <p>
+              Muitas vezes nosso sistema nervoso confunde a sensação de FOME com a de SEDE. Isto acontece, pois os dois centros estão muito próximos em nosso SN. Para ter certeza se está com fome ou sede siga este procedimento:
+            </p>     
+          </div>  
+          <div class="imagem-dupla">
+          
+          </div>
+          <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
+            <img 
+              src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img-2-6.png"
+              alt="Mastigação e Saciedade"
+              style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
+          </div>
+        </div>
+      </div>
+    </div>
+ </section>
+
+  <section class="pagina-nutricao page-break with-header" style="page: page7;">
+      <div class="bloco-dietetica" style="margin:40mm auto 0 auto; position:relative;">
+        <div class="titulo-capsula7">PROPOSTA DE REFORMULAÇÃO DIETÉTICA</div>
+        <p class="texto-intro">
+          O planejamento proposto permite que alterações sejam<br> feitas conforme as suas “necessidades”, contanto que<br> não seja ultrapassado o limite de:
+        </p>
+    
+        <div class="box-limites">
+          <p><strong>COM TREINO –</strong>{{ kcal_2 }} kcal</p>
+          <p><strong>SEM TREINO –</strong> {{ kcal_3 }} kcal</p>
+          <p><strong>Final de Semana –</strong> PLANO ALIMENTAR <span class="extra">+ 2 REFEIÇÕES EXTRAS</span></p>
+        </div> 
+        <img class="img-frutas" src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/fruta.png" alt="Frutas decorativas">
+
+      </div>  
+
+      <div class="bloco-orientacoes">
+        <div class="titulo-capsula7">ORIENTAÇÕES GERAIS</div>
+    
+        <div class="item">
+          <div class="numero">1</div>
+          <p><strong>Óleo para cozinhar.</strong> Em ordem, os melhores são: manteiga clarificada, banha e óleo de coco. Evitar todos os outros.</p>
+        </div>
+    
+        <div class="item">
+          <div class="numero">2</div>
+          <p><strong>Todas as frutas</strong> podem ser consumidas, sempre respeitando o número limite de unidades. Quanto aos legumes, podem ser consumidos os de sua preferência sempre respeitando o limite calórico e tentando consumir dois pires ao dia. </p>
+        </div>
+    
+        <div class="item">
+          <div class="numero">3</div>
+          <p><strong>Coma muita salada</strong> de folhas verdes no almoço e jantar para ajudar na saciedade. Alterne sempre que possível as folhas. <strong>Cuidado com o excesso de azeite ou óleos. </strong></p>
+        </div>
+    
+        <div class="item">
+          <div class="numero">4</div>
+          <p><strong>Frutas, legumes e folhas</strong> são fontes de vitaminas, minerais, fibras e principalmente alguns compostos funcionais. É a partir deles, que conseguimos as vitaminas e minerais importantes para o bom funcionamento das vias metabólicas, entre elas a envolvida na queima de gordura e ganho de massa magra. As não menos importantes fibras podem diminuir a incidência de desenvolver doenças como o câncer.</p>
+        </div>
+    
+        <div class="item">
+          <div class="numero">5</div>
+          <p>Os compostos funcionais são substâncias que evitam a ocorrências de diversas doenças crônicas, como por exemplo, doença coronariana, são antioxidantes, antienvelhecimento, entre outros. Uma ótima fonte destes é o chá verde. Seria de grande valia passar a consumir 2 xícaras do mesmo ao dia. </p>
+        </div>
+      </div>
+  
+  </section>
+
+  <section class="pagina-nutricao page-break with-header" style="page: page8;">
+    <div class="bloco-orientacoes"style="margin:40mm auto 0 auto; position:relative;">
+
+      <div class="item">
+        <div class="numero">6</div>
+        <p>É de grande importância que <strong>não se pule refeições</strong> e que não se compense na seguinte uma eventual falta da anterior.</p>
+      </div>
+  
+      <div class="item">
+        <div class="numero">7</div>
+        <p>Sempre que possível evite alimentos <strong>com alto teor de gordura,</strong> mesmo que haja a possibilidade de encaixá-lo no consumo de calorias permitidas. Mas se for importante fazê-lo, faça com pouca frequência.</p>
+      </div>
+  
+      <div class="item">
+        <div class="numero">8</div>
+        <p><strong>Lanches intermediários</strong> são de grande importância para que não haja exageros nas grandes refeições. Desta forma, mesmo em caso de reuniões, é de grande importância que não se deixe de fazê-los.</p>
+      </div>
+  
+      <div class="item">
+        <div class="numero">9</div>
+        <p><strong>Consumir frituras</strong> (mandioca, batata, milanesas) no máximo <u>1 vez na semana</u>.</p>
+      </div>
+  
+      <div class="item">
+        <div class="numero">10</div>
+        <p>
+          <strong>O consumo de água</strong> é livre e de no mínimo 2.0 l. Contabilizar como água, sucos, água de coco, café, chá.</p>
+      </div>
+      <div class="item">
+        <div class="numero">11</div>
+        <p> <strong>Quanto ao consumo de sucos, </strong> de preferência aos naturais dietéticos e não industrializados. </p>
+      </div>
+    </div>
+    <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
+      <img 
+        src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/bala.jpg"
+        alt="Mastigação e Saciedade"
+        style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
+    </div>  
+  </section>
+
+  <section class="page-break with-header"style="page: page9;">   
+    <div class="run-hdr">
+      <img
+        src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+        alt="Logo Nutrição Esportiva"
+        class="logo-medico">
+    </div>    
+    <div class="relatorio-capa">    
+      <div class="bloco" style="margin:70mm auto 0 auto; position:relative;">
+        <div class="bloco-titulo">Suplementos</div>      
+        <div class="bloco-conteudo" style="padding-right:220px;">
+          <br>
+          <br>
+          <br>
+          Pergunte ao Nutricionista
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>      
+        <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/cu.png" 
+            alt="Cápsulas"
+            style="position:absolute; top:0px; right:0px; width:250px; height:auto;">
+      </div>    
+  
+      <!-- 🔹 Firma -->
+      <div class="rodape" style="margin-top:15mm; line-height:1.8 !important;">
+        <p>No primeiro momento, a proposta deste plano alimentar é fazer com que seu PESO DIMINUA; e a longo prazo fazer com que se consiga desenvolver um conhecimento nutricional, e desta forma, seja capaz de manter, com conhecimento de causa, uma alimentação balanceada.<br><br><br><br><br>Atenciosamente,</p>
+      </div>    
+    </div>  
+  </section>
+</body>
+</html>

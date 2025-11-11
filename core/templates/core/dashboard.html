@@ -1,0 +1,488 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'core/css/dashboard.css' %}" />
+<link rel="stylesheet" href="{% static 'core/css/geral.css' %}" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300!important;
+  }
+  .comic-sans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  #faixa-v{
+    height: 80px!important;
+    opacity: 0!important;
+    display: none!important
+  }
+  #page-wrap{
+    width:100vw;
+    height:100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  #logo{
+    width: 177px;
+    height: 56px;
+    margin-top: 1rem;
+  }
+  #logo-wrap{
+    margin-bottom: 5rem;
+  }
+  .texto-titulo{
+    color: white!important;
+    font-size: 27px;
+    margin-bottom: 2rem!important;
+  }
+  .texto-subtitulo{
+    color: white!important;
+    font-size: 25px;
+    margin-bottom: 2rem!important;
+  }
+  .no-margin{
+    margin-bottom: 0px!important;
+    margin-top:  0px!important;
+  }
+  
+  #texto_comum{
+    color: white!important; 
+    font-size: 20px;
+    margin-bottom: 2rem!important
+  }
+  .btn-model{
+    width:550px;
+    border:none;
+    background-color: transparent;
+    
+  }
+  .modal-backdrop {
+    z-index: -2;
+  }
+  .btn-esp-redirect{
+    background-color: red;
+    color: white;
+    font-size: 27px;
+    font-weight: bold!important;
+    border-radius: 25px;
+    padding: 10px 25px;
+    align-items: center;
+    text-align: center;
+  }
+  header{
+    display: none!important;
+  }
+  #foto-israel{
+    position:absolute;
+    right:5%;
+    bottom:0;
+    margin-right: 10vw;
+    height:473px; 
+    width: 350px
+  }
+  #foto-israel-alternativa{
+    width:150px;
+    display:none;
+  }
+  #botao-abrir-video{
+    width:548px;
+    height: 66px
+  }
+  #texto-principal{
+    color: white; 
+    font-size: 25px; 
+    font-family: 'gotham', sans-serif!important;
+    margin-bottom: 2rem!important
+  }
+  #texto_comum_1{
+    font-size: 25px!important;
+    color: white!important;
+    margin-bottom: 2rem!important;
+    margin-top: 2rem!important
+  }
+  #texto_comum_2{
+    font-size: 19px!important;
+    color: white!important;
+    margin-bottom: 2rem!important
+  }
+  #botao_iniciar{
+    width:192px;
+    height:64px;
+  }
+  #botao_iniciar:hover{
+    cursor:pointer
+  }
+  #hidden-part{
+    display: none;
+  }
+  #page-wrap{
+      background-color: #002E5D;
+    }
+    *{
+      font-family:  'Lato', sans-serif!important;
+      font-weight: 300;
+      letter-spacing: 0px!important;
+    }
+    #container-wrap{
+      margin-top: -40px;
+    }
+    #redireciona_login{
+    font-size: 17px;
+    margin-top: 0px
+  }
+  #redireciona_login a{
+    font-size: 17px!important;
+  }
+
+  #wrap-termos{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    
+  }
+  #wrap-termos p{
+    font-size: 17px;
+  }
+  #wrap-termos p a{
+    font-size: 17px;
+  }
+  @media screen and (max-width: 520px){
+    #wrap-termos{
+      height:100px;
+      position: relative;
+    }
+    #wrap-termos p{
+      font-size: 10px!important;
+    }
+    #wrap-termos p a{
+    font-size: 10px!important
+  }
+    #container-wrap{
+      margin-top: 0px;
+    }
+    
+    .texto-titulo{
+      font-size:16px;
+      text-align: center;
+    }
+    .texto-subtitulo{
+      font-size:16px;
+      text-align: center;
+    }
+          
+    #texto_comum{
+      font-size: 15px;
+      text-align: center;
+    }
+    #logo{
+      width: 133px!important;
+      height:42px!important;
+      margin-top: 1rem;
+    }
+    #logo-wrap{
+      margin-bottom: 20px;
+      margin-top: 20px
+    }
+    #texto-principal{
+      font-size: 15px;
+      text-align: center;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 0px!important
+    }
+    #texto_inserido_1{
+      font-size: 15px;
+      text-align: center;
+      margin-top: 0px!important
+    }
+    #texto_comum_wrap{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:-20px!important;
+    margin-bottom: 0px!important
+    }
+    #texto_comum{
+      font-size: 14px;
+      text-align: left;
+      width:80%;
+      margin-top: 10px;
+      margin-bottom: 20px!important
+    }
+    #btn-modal-wrap{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #botao-video-wrap{
+      width: 364px!important;
+      height: 44px!important;
+    }
+    #botao-abrir-video{
+      width: 364px!important;
+      height: 44px!important;
+    }
+    #foto-israel{
+      display:none
+    }
+    #foto-israel-alternativa{
+      display:block;
+      width: 217px!important;
+      height: 295px!important;
+    }
+    #caixa-video{
+      width:300px!important
+    }
+    .modal-footer{
+      width: 300px!important
+    }
+    
+    #botao_iniciar{
+    width:100px;
+  }
+  #redireciona_login{
+    font-size: 10px;
+    margin-top: 0px
+  }
+  #redireciona_login a{
+    font-size: 10px!important;
+  }
+  #hidden-part{
+    justify-content: center;
+    align-items: center;
+    flex-direction:column
+  }
+    #texto_comum_1{
+      font-size: 14px!important;
+      color: white!important;
+      margin-bottom: 1rem!important;
+      margin-top: 0px!important;
+      width: 80%;
+      text-align: left;
+    }
+    #texto_comum_2{
+      font-size: 14px!important;
+      color: white!important;
+      margin-bottom: 1rem!important;
+      width: 80%;
+      text-align: left;
+    }
+  }
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('event', 'conversion', {'send_to': 'AW-10894001353/88S3CKulg7kDEMmJ1coo'});
+</script>
+{% endblock %}
+{% block conteudo %}
+{% if sem_avaliacao == 'True' %}
+<div class="modal fade" id="meumodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-danger font-weight-bold">AVISO!</h4>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+            class="sr-only">Fechar</span></button>
+
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">Você não possui planos alimentares disponíveis, compre alguns e realize a avaliação
+          novamente</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Continuar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+  $("#meumodal").modal("show");
+</script>
+{% endif %}
+{% if sem_tempo %}
+<div class="modal fade" id="meumodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-danger font-weight-bold">AVISO!</h4>
+        <button type="button" class="close" data-dismiss="modal"id="botao-fechar-video"><span aria-hidden="true">&times;</span><span
+            class="sr-only">Fechar</span></button>
+
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">
+          Você precisa adquirir um plano para ter acesso a este recurso.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="botao-fechar-video-2">Continuar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+  $("#meumodal").modal("show");
+</script>
+{% endif %}
+
+  
+
+
+<div class="container-fluid " id="page-wrap">
+  <!--Inserindo foto do israel-->
+  <img src="{% static 'core/img/foto_israel.png' %}" id="foto-israel" alt="foto_israel">
+
+
+   
+  <!-- Div com a logo -->
+  <div class="container-fluid d-flex justify-content-center pt-3" id="logo-wrap">
+    <img src="{% static 'core/img/new_logo.png' %}" id="logo" alt="logo">
+  </div>
+
+
+  <div class="container" id="container-wrap">
+    <div class="row ">
+      <div class="col-md-1"></div>
+  
+      <div class="col-md-8">
+        <div class="container-fluid" id="textos-wrap">
+          
+          <p class="texto-titulo no-margin">Este é o primeiro passo da sua jornada em busca do</p>
+          <p class="texto-titulo no-margin" style="font-weight:bold!important">Emagrecimento Definitivo</p>
+          <p class="texto-subtitulo my-2">Eu posso te Ajudar!</p>
+          <div id="texto_comum_wrap" >
+            <img src="{% static 'core/img/foto_israel.png' %}" id="foto-israel-alternativa" alt="foto_israel">
+            <p id="texto_comum">Sou Nutricionista Esportivo Especialista em Emagrecimento Definitivo <br> há mais de 15 anos e conto com milhares de casos de sucesso!</p>
+          </div>
+  
+          <div id="btn-modal-wrap">
+            <button class="btn-model" data-toggle="modal" data-target="#myModal" id="btn-modal-wrap">
+              <div class="bg-white"style='border-radius:100px' id="botao-video-wrap">
+                <img src="{% static 'core/img/botao_assistir_video.png' %}" id="botao-abrir-video" alt="botão" >
+              </div>
+            </button>
+          </div>
+          
+        
+        
+          <div id='hidden-part' >
+          <!-- HIDDEN CLASS -->
+            <p class=" " id="texto_comum_1" >Vamos montar seu Plano Alimentar?</p>
+            <p class=" " id="texto_comum_2" >Clique em INICIAR, escolha o plano e imediatamente começaremos a montar <br> seu Planejamento Alimentar.</p>
+            <p class="d-flex justify-content-start" style="margin-left:25%">
+              
+              <a href="{% url 'cadastro' %}"class=''>
+                <img src="{% static 'core/img/botao_iniciar.png' %}" alt="botão" id="botao_iniciar" >
+              </a>
+            </p>
+            </div><!-- END HIDDEN CLASS-->
+  
+        </div><!-- /#Textos-wrap -->
+      </div><!-- /.col-md-7 -->
+  
+     
+  
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+  
+  
+  <div class="my-4 d-flex justify-content-center ">
+    <p class="text-white" id="redireciona_login">Caso Já Possua Cadastro, <a href="{% url 'login' %}" style="font-weight:bold">Clique Aqui</a></p>
+  </div>
+  <div class="my-4" id="wrap-termos">
+    <p class="text-white text-center">Para acessar nossos termos e políticas <a href="{% url 'termos_e_condicoes' %}" style="font-weight:bold">Clique Aqui</a></p>
+  </div>
+</div><!-- /.container-fluid -->
+
+ <!-- The Modal -->
+ <div class="modal fade" id="myModal" style="margin-top:80px;">
+  <div class="modal-dialog"style="margin-left:10vw;">
+    <div class="modal-content"style="width:60vw; background-color: transparent!important">
+
+
+      <!-- Modal body -->
+      <div class="modal-body"style="background-color:transparent!important;" id="caixa-video">
+        
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button id="btn-hidden" type="button" class="btn btn-primary" data-dismiss="modal" onclick="Exibe()">Entendi!</button>
+        <script>
+          $("#btn-hidden").click(function () {
+            $("#hidden-part").show('slow');
+            //verificando se o width é menor que 768px
+            var width = $(window).width();
+            if (width < 768){
+              $("#hidden-part").css("display", "flex");
+            }
+            
+          });
+        </script>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Hide and show video-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#botao-abrir-video').on("click", function() {
+        $('#caixa-video').html('<iframe width="100%" height="442px" src="{{pagina.link_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+    });
+});
+$(document).ready(function(){
+    $('#btn-hidden').on("click", function() {
+        $('#caixa-video').html('olá')
+    });
+});
+</script>
+{% endblock %}
+
+<!--
+    <div class="col-sm-10">
+      <div class="container-fluid">
+        <p class="{{ pagina.tamanho_titulo }}" style="color: #2b6ca3;line-height: 35px;">Este é o Primeiro passo da sua Jornada em Busca do Emagrecimento Definitivo!</p>
+      <p class="{{ pagina.tamanho_subtitulo }}" style="font-weight: normal!important;"><b>{{usuario.nome|title}}</b>, {{pagina.subtitulo_1}}</p>
+      <p class="{{ pagina.tamanho_texto }} texto">{{ pagina.texto_1 }}</p>
+      <p class="{{ pagina.tamanho_texto }} texto">{{ pagina.texto_2 }}</p>
+      <p class="{{ pagina.tamanho_texto }} texto">{{ pagina.texto_3 }}</p>
+      <div class="py-2">
+        
+      </div>
+      </div>
+      
+      <div style="border-top: 3px solid #2b6ca3" class="my-1"></div>
+      <div class="container-fluid" >
+        <h2 class="{{ pagina.tamanho_subtitulo }} subtitulo mt-1 mb-4"style="color: #2b6ca3;">Vamos montar seu plano alimentar?</h2>
+      <h5 class="{{ pagina.tamanho_texto }} my-4" style="line-height: 25px;">Clique no botão INICIAR, para começarmos a montar seu Plano Alimentar para Emagrecimento ou Definição</h5>
+      <a href="{% url 'pedidos:pedido' %}"class="btn btn-primary text-light mb-4 px-4 py-2"><b class="text-light">INICIAR</b> </a>
+      </div>
+      <div class="col-md-1"></div>
+
+    -->

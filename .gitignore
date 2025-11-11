@@ -1,0 +1,16 @@
+db.sqlite3
+*.pyc
+/venv
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+.vscode/
+# C extensions
+*.so
+docker-compose.yml
+Dockerfile
+.venv
+.env

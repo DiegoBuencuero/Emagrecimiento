@@ -1,0 +1,72 @@
+<style>
+    .pre-treino-box {
+        display: flex;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        background: #fafafa; /* gris muy claro */
+      }
+      
+      /* Columna izquierda */
+      .pre-treino-left {
+        background: #2b6ca3; /* gris medio suave */
+        color: #333;
+        text-align: center;
+        padding: 18px 22px;
+        min-width: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid #d6d6d6;
+      }
+      
+      .pre-treino-left .pre-title {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+      
+      .pre-treino-left .pre-time {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #ffffff;
+      }
+      
+      /* Columna derecha */
+      .pre-treino-right {
+        padding: 18px 24px;
+        flex: 1;
+        background: #E2E5F1; 
+      }
+      
+      .pre-treino-right p {
+        margin: 4px 0;
+        font-size: 15px;
+        color: #2b2b2b;
+      }
+      
+      .pre-treino-right b {
+        font-weight: 600;
+      }
+      
+      .pre-treino-right .observacao {
+        font-size: 13px;
+        color: #000000;
+      }
+      
+    </style>      
+{% if treino == 's' %}
+<div class="pre-treino-box">
+    <div class="pre-treino-left">
+      <p class="pre-title">Pré-Treino</p>
+      <p class="pre-time">15 - 30 min</p>
+    </div>
+    <div class="pre-treino-right">
+      <p><b>30g</b> de Maltodextrina em 500 ml de Água</p>
+      <p class="observacao">Se o seu treino for caminhada, não use este pré-treino</p>
+    </div>
+  </div>
+{% endif %}
