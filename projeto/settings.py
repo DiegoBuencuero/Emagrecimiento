@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost, israeladolfo.pythonanywhere.com").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,israeladolfo.pythonanywhere.com").split(",")
 # Application definition
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "False"
@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": "/home/IsraelAdolfo/EmagrecimentoDefinitivoApp/db.sqlite3",
     }
 }
 
