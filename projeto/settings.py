@@ -175,6 +175,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'payments/static',
     BASE_DIR / 'pedidos/static',
 ]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'staticfiles',
+# ]
 MEDIA_ROOT = BASE_DIR / 'media'
 
 

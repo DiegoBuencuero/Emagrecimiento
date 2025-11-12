@@ -21,7 +21,7 @@ nav h2 {
   padding-bottom: 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal!important;
 }
 
 .nav-item {
@@ -29,14 +29,14 @@ nav h2 {
   border-top: 1px solid white;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
 }
 
 a {
-  font-size: 1rem;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  color: white
+  font-size: 0.85rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: white;
+  font-weight: normal!important;
 }
 
 a:hover {
@@ -54,78 +54,9 @@ label {
   background-color: #7093d2;
 }
 
-/* Ini: Style Scrollbar*/
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #2b6ca3;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(85, 85, 85);
-}
-
-/* End: Style Scrollbar*/
-h2 {
-  padding-top: 5px;
-  color: white;
-  font-weight: 900;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 8vh;
-  background: #2b6ca3;
-}
 
 
 
-.nav-list {
-  display: flex;
-  list-style: none;
-}
-
-.nav-list li {
-  letter-spacing: 3px;
-  margin-left: 32px;
-  margin-top: 12px
-}
-
-.mobile-menus {
-  display: none;
-  cursor: pointer;
-}
-
-.mobile-menus div {
-  width: 32px;
-  height: 2px;
-  background-color: #fff;
-  margin: 8px;
-}
-
-.mobile-menus {
-  display: none;
-  cursor: pointer;
-}
-
-.mobile-menus div {
-  width: 32px;
-  height: 2px;
-  background-color: #fff;
-  margin: 8px;
-}
 
 @media screen and (max-width: 999px) {
   .nav-list {
