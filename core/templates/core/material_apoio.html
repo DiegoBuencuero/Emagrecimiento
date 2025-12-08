@@ -82,14 +82,22 @@
                                     </h4>
                                     <p class="card-text" style="font-size: 14px; font-weight:normal;line-height: 16px;">{{ material.texto|safe }}</p>
                                     {% if material.categoria == "Geral"  %}
-                                    <a href="{{ material.material.url }}" class="btn btn-primary" download>Baixar
-                                        Conteúdo</a>
+                                    <a href="{{ material.material.url }}" 
+                                    class="btn btn-primary" 
+                                    download 
+                                    target="_blank">
+                                    Baixar Conteúdo
+                                 </a>
                                     {% else %}
                                         {% if liberar  %}
                                             {% if liberar != "NA" %}
                                                 {% if liberar != "NP"%}
-                                                    <a href="{{ material.material.url }}" class="btn btn-primary" download>Baixar
-                                                        Conteúdo</a>
+                                                <a href="{{ material.material.url }}" 
+                                                class="btn btn-primary" 
+                                                download 
+                                                target="_blank">
+                                                Baixar Conteúdo
+                                             </a>
                                                 {% else %}
                                                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#meumodal">Baixar Conteúdo</button>
                                                 {% endif %}
