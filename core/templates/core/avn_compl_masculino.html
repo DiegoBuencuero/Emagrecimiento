@@ -54,7 +54,7 @@
     /* --- Página 3 --- */
     @page page3 {
       size: A4;
-      background: url("{{ static_relatorios }}img3RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background: url("{{ static_base  }}img3RelM-convertido-de-webp.jpeg") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -66,7 +66,7 @@
     /* --- Página 4 --- */
     @page page4 {
       size: A4;
-      background: url("{{ static_relatorios }}imagenM4.jpeg") no-repeat center center;
+      background: url("{{ static_base }}imagenM4.jpeg") no-repeat center center;
 
       background-size: cover;
       margin: 0;
@@ -79,7 +79,7 @@
     /* --- Página 5 --- */
     @page page5 {
       size: A4;
-      background: url("{{ static_relatorios }}AVN_fondoLimpio.jpg") no-repeat center center;
+      background: url("{{ static_base }}AVN_fondoLimpio.jpg") no-repeat center center;
 
 
       background-size: cover;
@@ -92,7 +92,7 @@
 
     @page page6 {
       size: A4;
-      background: url("{{ static_relatorios }}logo.png") no-repeat right top;
+      background: url("{{ static_base }}logo.png") no-repeat right top;
 
       background-size: cover;
       margin: 0;
@@ -103,7 +103,7 @@
     }
     @page page7 {
       size: A4;
-      background: url("{{ static_relatorios }}logo.png") no-repeat right top;
+      background: url("{{ static_base }}logo.png") no-repeat right top;
 
       background-size: cover;
       margin: 0;
@@ -114,7 +114,7 @@
     }
     @page page8 {
       size: A4;
-      background: url("{{ static_relatorios }}AVN_fondoLimpio.jpg") no-repeat center center;
+      background: url("{{ static_base }}AVN_fondoLimpio.jpg") no-repeat center center;
       margin: 0;
       @top-right {
         content: element(run-hdr);    /* inyecta el header en @top-right */
@@ -124,7 +124,7 @@
     /* --- Página 9 --- */
     @page page9 {
       size: A4;
-      background: url("{{ static_relatorios }}img5RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background: url("{{ static_base }}img5RelM-convertido-de-webp.jpeg") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -1189,7 +1189,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page2">
       <div class="run-hdr">
         <img
-          src="{{ static_relatorios }}logo.png"
+          src="{{ static_base }}logo.png"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>
@@ -1358,7 +1358,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page3;">     
       <div class="run-hdr">
         <img
-          src="{{ static_relatorios }}logo.png"
+          src="{{ static_base }}logo.png"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>      
@@ -1497,7 +1497,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
  
    <section class="page-break with-header" style="page: page5;">
     <div class="run-hdr">
-      <img src="{{ static_relatorios }}logo.png"
+      <img src="{{ static_base }}logo.png"
            alt="Logo Nutrição Esportiva" class="logo-medico">
     </div>
   
@@ -1513,7 +1513,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
   
           <div class="conteudo-secao5">
             <div class="imagem-secao5">
-              <img src="{% static 'relatorios/plato.jpg' %}">
+              <img src="{{ static_base }}plato.jpg">
             </div>
   
             <div class="texto-secao5">
@@ -1553,7 +1553,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
           </div>
   
           <div class="imagem-dupla">
-            <img src="{{ static_relatorios }}massac.png" alt="Mastigação e Saciedade">   
+            <img src="{{ static_base }}massac.png" alt="Mastigação e Saciedade">   
             <div class="capsula-inferior vermelha">Mastigação</div>
             <div class="capsula-inferior azul">Saciedade</div>
           </div>
@@ -1564,7 +1564,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
   
    <section class="page-break with-header" style="page: page6;">
       <div class="run-hdr">
-        <img src="{{ static_relatorios }}logo.png"
+        <img src="{{ static_base }}logo.png"
         alt="Logo Nutrição Esportiva" class="logo-medico">
       </div>  
       <div class="relatorio-capa" style="margin:45mm auto 0 auto; position:relative;">
@@ -1583,7 +1583,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             </div>  
             <div class="imagem-dupla" style="text-align:center;">
               <img 
-                src="{{ static_relatorios }}img-1-6.png"
+                src="{{ static_base }}img-1-6.png"
                 alt="Mastigação e Saciedade"
                 style="width:480px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
             </div>
@@ -1624,7 +1624,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             </div>
             <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
               <img 
-                src="{{ static_relatorios }}img-2-6.png"
+                src="{{ static_base }}img-2-6.png"
                 alt="Mastigação e Saciedade"
                 style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
             </div>
@@ -1645,7 +1645,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             <p><strong>SEM TREINO –</strong> {{ kcal_3 }} kcal</p>
             <p><strong>Final de Semana –</strong> PLANO ALIMENTAR <span class="extra">+ 2 REFEIÇÕES EXTRAS</span></p>
           </div> 
-          <img class="img-frutas" src="{{ static_relatorios }}fruta.png">
+          <img class="img-frutas" src="{{ static_base }}fruta.png">
 
         </div>  
 
@@ -1715,7 +1715,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
       </div>
       <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
         <img 
-          src="{{ static_relatorios }}bala.jpg"
+          src="{{ static_base }}bala.jpg"
           alt="Mastigação e Saciedade"
           style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
       </div>  
@@ -1723,7 +1723,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page9;">   
       <div class="run-hdr">
         <img
-          src="{{ static_relatorios }}logo.png"
+          src="{{ static_base }}logo.png"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>    
@@ -1741,7 +1741,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             <br>
             <br>
           </div>      
-          <img src="{{ static_relatorios }}cu.png"
+          <img src="{{ static_base }}cu.png"
               alt="Cápsulas"
               style="position:absolute; top:0px; right:0px; width:250px; height:auto;">
         </div>    
