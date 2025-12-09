@@ -9,7 +9,7 @@
     @page {
       size: A4;
       margin: 0mm 0mm 5mm 0mm;       
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/EVN+Feminina.jpg") no-repeat center center;
+      background: url("{% static 'relatorios/EVN_Feminina.jpg' %}") no-repeat center center;
       background-size: cover;
     }
     @page:first {
@@ -40,7 +40,7 @@
 
     @page page2 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img2RE.jpeg") no-repeat center center;
+      background: url("{% static 'relatorios/img2RE.jpeg' %}") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -52,7 +52,7 @@
     /* --- Página 3 --- */
     @page page3 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/EVN+Feminina2.jpg") no-repeat center center;
+      background: url("{% static 'relatorios/EVN_Feminina2.jpg' %}") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -64,7 +64,7 @@
     /* --- Página 4 --- */
     @page page4 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/imagenM4.jpeg") no-repeat center center;
+      background: url("{% static 'relatorios/imagenM4.jpeg' %}") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -76,15 +76,14 @@
     /* --- Página 5 --- */
     @page page5 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img5RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background: url("{% static 'relatorios/img5RelM-convertido-de-webp.jpeg' %}") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
+        content: element(run-hdr);    
         vertical-align: top;
       }
     }
-
 
     .run-hdr {
       position: running(run-hdr);
@@ -667,7 +666,7 @@
     <section class="page-break with-header"style="page: page2">
       <div class="run-hdr">
         <img
-          src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          src="{% static 'relatorios/logo.png' %}" alt=""
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>
@@ -937,7 +936,7 @@
     <section class="page-break with-header"style="page: page3;">     
       <div class="run-hdr">
         <img
-          src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          src="{% static 'relatorios/logo.png' %}" alt=""
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>
@@ -1169,7 +1168,7 @@
           <br>
           <br>
         </div>      
-        <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/cu.png" 
+        <img src="{% static 'relatorios/cu.png' %}" alt=""
              alt="Cápsulas"
              style="position:absolute; top:0px; right:0px; width:250px; height:auto;">
       </div>      
