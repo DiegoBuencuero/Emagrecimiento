@@ -37,19 +37,15 @@
       text-align: center;
     }
 
-
     @page page2 {
       size: A4;
+      margin: 0;
       background: url("{{ static_base }}img2RE.jpeg") no-repeat center center;
       background-size: cover;
-      margin: 0;
       @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
-        vertical-align: top;
+        content: element(run-hdr);
       }
     }
-
-    
     
     /* --- Página 3 --- */
     @page page3 {
