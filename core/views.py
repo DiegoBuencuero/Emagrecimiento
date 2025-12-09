@@ -2532,7 +2532,7 @@ class CapaRelatorioView(TemplateView):
 
         response = HttpResponse(pdf, content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename="relatorio_capa.pdf"'
-
+        print("TEMPLATE USADO:", self.template_name)
         return response
 
 # === Logging para debug controlado (opcional) ===
