@@ -9,7 +9,7 @@
     @page {
       size: A4;
       margin: 0mm 0mm 5mm 0mm;       
-      background: url("{% static 'relatorios/EVN_Feminina.jpg' %}") no-repeat center center;
+      background: url("{{ static_base }}EVN_Feminina.jpg") no-repeat center center;
       background-size: cover;
     }
     @page:first {
@@ -40,7 +40,7 @@
 
     @page page2 {
       size: A4;
-      background: url("{% static 'relatorios/img2RE.jpeg' %}") no-repeat center center;
+      background-image: url("{{ static_base }}relatorios/img2RE.jpeg");
       background-size: cover;
       margin: 0;
       @top-right {
@@ -52,7 +52,7 @@
     /* --- Página 3 --- */
     @page page3 {
       size: A4;
-      background: url("{% static 'relatorios/EVN_Feminina2.jpg' %}") no-repeat center center;
+      background-image: url("{{ static_base }}relatorios/EVN_Feminina2.jpg");
       background-size: cover;
       margin: 0;
       @top-right {
@@ -64,7 +64,7 @@
     /* --- Página 4 --- */
     @page page4 {
       size: A4;
-      background: url("{% static 'relatorios/imagenM4.jpeg' %}") no-repeat center center;
+      background-image: url("{{ static_base }}relatorios/imagenM4.jpeg");
       background-size: cover;
       margin: 0;
       @top-right {
@@ -76,7 +76,7 @@
     /* --- Página 5 --- */
     @page page5 {
       size: A4;
-      background: url("{% static 'relatorios/img5RelM-convertido-de-webp.jpeg' %}") no-repeat center center;
+      background-image: url("{{ static_base }}relatorios/img5RelM-convertido-de-webp.jpeg");
       background-size: cover;
       margin: 0;
       @top-right {
