@@ -50,7 +50,7 @@
       }
     }
     
-    /* --- Página 3 --- */
+    {% comment %} /* --- Página 3 --- */
     @page page3 {
       size: A4;
       background-image: url("{{ static_base }}relatorios/EVN_Feminina2.jpg")no-repeat center center;
@@ -60,9 +60,16 @@
         content: element(run-hdr);    /* inyecta el header en @top-right */
         vertical-align: top;
       }
+    } {% endcomment %}
+    @page page3 {
+      size: A4;
+      margin: 0;
+      background: url("{{ static_base }}relatorios/EVN_Feminina2.jpg") no-repeat center center;
+      background-size: cover;
+      @top-right { content: element(run-hdr); }
     }
-    
-    /* --- Página 4 --- */
+
+    {% comment %} /* --- Página 4 --- */
     @page page4 {
       size: A4;
       background-image: url("{{ static_base }}relatorios/imagenM4.jpeg")no-repeat center center;
@@ -72,9 +79,15 @@
         content: element(run-hdr);    /* inyecta el header en @top-right */
         vertical-align: top;
       }
+    } {% endcomment %}
+    @page page4 {
+      size: A4;
+      margin: 0;
+      background: url("{{ static_base }}relatorios/imagenM4.jpeg") no-repeat center center;
+      background-size: cover;
+      @top-right { content: element(run-hdr); }
     }
-    
-    /* --- Página 5 --- */
+    {% comment %} /* --- Página 5 --- */
     @page page5 {
       size: A4;
       background-image: url("{{ static_base }}relatorios/img5RelM-convertido-de-webp.jpeg")no-repeat center center;
@@ -84,8 +97,14 @@
         content: element(run-hdr);    
         vertical-align: top;
       }
+    } {% endcomment %}
+    @page page5 {
+      size: A4;
+      margin: 0;
+      background: url("{{ static_base }}relatorios/img5RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background-size: cover;
+      @top-right { content: element(run-hdr); }
     }
-
     .run-hdr {
       position: running(run-hdr);
       text-align: right;
@@ -664,7 +683,7 @@
       </div>
     </section>
       <!-- Contenido de la PÁGINA 2 -->
-      <section class="page-break with-header" style="page: page2;">
+      <section style="page: page2;" class="page-break with-header">
       <div class="run-hdr">
         <img
           src="{{ static_base }}logo.png" alt=""
@@ -934,7 +953,7 @@
       </div>
     </section>
       <!-- Contenido de la PÁGINA 3 -->
-    <section class="page-break with-header" style="page: page3;">    
+      <section style="page: page3;" class="page-break with-header">   
       <div class="run-hdr">
         <img
           src="{{ static_base }}logo.png" alt=""
@@ -1113,7 +1132,7 @@
             </div>
     </section>
     <!-- Contenido de la PÁGINA 4 -->
-    <section class="page-break with-header" style="page: page4;">     
+    <section style="page: page4;" class="page-break with-header">   
       <div class="capsula-container-full">
         <div class="capsula-izq-full">FREQUÊNCIA:</div>
         <div class="capsula-der-full">CLASSIFICAÇÃO: -/-</div>
@@ -1156,8 +1175,8 @@
           
         </table>
       </div>    
-  </section>
-  <section class="page-break with-header" style="page: page5;">  
+    </section>
+    <section style="page: page5;" class="page-break with-header">
     <div class="relatorio-capa">    
       <div class="bloco" style="margin:50mm auto 0 auto; position:relative;">
         <div class="bloco-titulo">Suplementos</div>      
@@ -1191,6 +1210,6 @@
         <p>Fico à disposição para quaisquer esclarecimentos que se fizerem necessários.<br>Atenciosamente,</p>
       </div>    
     </div>  
-</section>
+    </section>
   </body>
 </html>
