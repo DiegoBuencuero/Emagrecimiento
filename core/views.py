@@ -2198,7 +2198,9 @@ def gerar_pdf(request):
         return HttpResponse("Tipo inválido", status=400)
 
     # ---- generar HTML ----
+    context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
     html_string = render_to_string("core/pdf_template.html", context)
+
 
     # ---- generar PDF ----
     with tempfile.NamedTemporaryFile(delete=False) as output:
@@ -2508,8 +2510,9 @@ class CapaRelatorioView(TemplateView):
     
 
     def _gerar_pdf(self, context):
-
+        context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
         html_string = render_to_string(self.template_name, context)
+        
 
         # --- CSS ---
         css = CSS(string='''
@@ -2793,7 +2796,9 @@ class RelatorioEvolucaoNew(TemplateView):
         return self._gerar_pdf(context)
 
     def _gerar_pdf(self, context):
+        context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
         html_string = render_to_string(self.template_name, context)
+        
 
         css = CSS(string='''
             @page { size: A4; margin: 20mm; }

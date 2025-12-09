@@ -96,3 +96,295 @@ Traceback (most recent call last):
 django.db.utils.IntegrityError: FOREIGN KEY constraint failed
 [2025-11-12 13:05:35,030] ERROR django.server: "POST /cadastro HTTP/1.1" 500 173819
 [2025-11-12 13:05:35,030] ERROR django.server: "POST /cadastro HTTP/1.1" 500 173819
+[2025-12-08 22:55:58,802] WARNING weasyprint: Ignored `print-color-adjust: exact` at 14:68, unknown property.
+[2025-12-08 22:55:58,803] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 24:7, invalid value.
+[2025-12-08 22:55:58,803] WARNING weasyprint: Ignored `display: grid` at 25:7, invalid value.
+[2025-12-08 22:55:58,803] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 26:7, unknown property.
+[2025-12-08 22:55:58,803] WARNING weasyprint: Ignored `grid-row: 2` at 29:7, unknown property.
+[2025-12-08 22:55:58,803] WARNING weasyprint: Ignored `place-self: center` at 30:7, unknown property.
+[2025-12-08 22:55:58,804] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 168:7, unknown property.
+[2025-12-08 22:55:58,805] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 231:7, unknown property.
+[2025-12-08 22:55:58,805] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 278:7, unknown property.
+[2025-12-08 22:55:58,805] WARNING weasyprint: Ignored `gap: 8px` at 319:7, unknown property.
+[2025-12-08 22:55:58,806] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 358:7, unknown property.
+[2025-12-08 22:55:58,807] WARNING weasyprint: Ignored `gap: 10px` at 429:5, unknown property.
+[2025-12-08 22:55:58,808] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 467:5, invalid value.
+[2025-12-08 22:55:58,808] WARNING weasyprint: Ignored `gap: 20px` at 500:3, unknown property.
+[2025-12-08 22:55:58,808] WARNING weasyprint: Ignored `gap: 12px` at 546:3, unknown property.
+[2025-12-08 22:55:58,809] WARNING weasyprint: Ignored `gap: 6px` at 556:3, unknown property.
+[2025-12-08 22:55:58,809] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 593:3, unknown property.
+[2025-12-08 22:55:58,809] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 603:5, unknown property.
+[2025-12-08 22:55:58,811] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 750:1, invalid value.
+[2025-12-08 22:55:58,811] WARNING weasyprint: Ignored `gap: 25px` at 759:3, unknown property.
+[2025-12-08 22:55:58,811] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 800:3, unknown property.
+[2025-12-08 22:55:58,811] WARNING weasyprint: Ignored `gap: 20px` at 808:3, unknown property.
+[2025-12-08 22:55:58,811] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 835:3, unknown property.
+[2025-12-08 22:55:58,812] WARNING weasyprint: Ignored `width: fit-content` at 844:3, invalid value.
+[2025-12-08 22:55:58,812] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 853:3, unknown property.
+[2025-12-08 22:55:58,812] WARNING weasyprint: Ignored `align-item:center` at 854:3, unknown property.
+[2025-12-08 22:55:58,813] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 912:3, unknown property.
+[2025-12-08 22:55:58,814] WARNING weasyprint: Ignored `gap: 12px` at 970:3, unknown property.
+[2025-12-08 22:55:58,814] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1052:3, unknown property.
+[2025-12-08 22:55:58,816] WARNING weasyprint: Ignored `gap: 8px` at 1089:3, unknown property.
+[2025-12-08 22:55:58,816] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1117:3, unknown property.
+[2025-12-08 22:55:58,819] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-08 22:55:58,820] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 22:55:58,821] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 22:55:58,821] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 22:55:58,871] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-08 22:55:58,907] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-08 22:55:58,908] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-08 22:55:58,908] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-08 22:55:58,909] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-08 22:55:58,909] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-08 22:55:58,911] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-08 22:55:58,912] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-08 22:55:59,220] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_Port.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_Port.jpeg'>)
+[2025-12-08 22:55:59,224] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img2RE.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img2RE.jpeg'>)
+[2025-12-08 22:55:59,229] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img3RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img3RelM-convertido-de-webp.jpeg'>)
+[2025-12-08 22:55:59,235] ERROR weasyprint: Failed to load image at "file:///static/relatorios/imagenM4.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/imagenM4.jpeg'>)
+[2025-12-08 22:55:59,237] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 22:55:59,244] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `print-color-adjust: exact` at 15:68, unknown property.
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 25:7, invalid value.
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `display: grid` at 26:7, invalid value.
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 27:7, unknown property.
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `grid-row: 2` at 30:7, unknown property.
+[2025-12-08 23:40:30,173] WARNING weasyprint: Ignored `place-self: center` at 31:7, unknown property.
+[2025-12-08 23:40:30,174] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 169:7, unknown property.
+[2025-12-08 23:40:30,175] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 232:7, unknown property.
+[2025-12-08 23:40:30,175] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 279:7, unknown property.
+[2025-12-08 23:40:30,176] WARNING weasyprint: Ignored `gap: 8px` at 320:7, unknown property.
+[2025-12-08 23:40:30,177] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 359:7, unknown property.
+[2025-12-08 23:40:30,178] WARNING weasyprint: Ignored `gap: 10px` at 430:5, unknown property.
+[2025-12-08 23:40:30,178] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 468:5, invalid value.
+[2025-12-08 23:40:30,179] WARNING weasyprint: Ignored `gap: 20px` at 501:3, unknown property.
+[2025-12-08 23:40:30,179] WARNING weasyprint: Ignored `gap: 12px` at 547:3, unknown property.
+[2025-12-08 23:40:30,179] WARNING weasyprint: Ignored `gap: 6px` at 557:3, unknown property.
+[2025-12-08 23:40:30,180] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 594:3, unknown property.
+[2025-12-08 23:40:30,180] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 604:5, unknown property.
+[2025-12-08 23:40:30,182] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 751:1, invalid value.
+[2025-12-08 23:40:30,182] WARNING weasyprint: Ignored `gap: 25px` at 760:3, unknown property.
+[2025-12-08 23:40:30,182] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 801:3, unknown property.
+[2025-12-08 23:40:30,182] WARNING weasyprint: Ignored `gap: 20px` at 809:3, unknown property.
+[2025-12-08 23:40:30,183] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 836:3, unknown property.
+[2025-12-08 23:40:30,183] WARNING weasyprint: Ignored `width: fit-content` at 845:3, invalid value.
+[2025-12-08 23:40:30,183] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 854:3, unknown property.
+[2025-12-08 23:40:30,183] WARNING weasyprint: Ignored `align-item:center` at 855:3, unknown property.
+[2025-12-08 23:40:30,184] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 913:3, unknown property.
+[2025-12-08 23:40:30,184] WARNING weasyprint: Ignored `gap: 12px` at 971:3, unknown property.
+[2025-12-08 23:40:30,185] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1053:3, unknown property.
+[2025-12-08 23:40:30,185] WARNING weasyprint: Ignored `gap: 8px` at 1090:3, unknown property.
+[2025-12-08 23:40:30,185] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1118:3, unknown property.
+[2025-12-08 23:40:30,188] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-08 23:40:30,189] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:40:30,190] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:40:30,190] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:40:30,238] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-08 23:40:30,249] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-08 23:40:30,250] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-08 23:40:30,250] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-08 23:40:30,251] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-08 23:40:30,251] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-08 23:40:30,253] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-08 23:40:30,254] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-08 23:40:30,616] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img2RE.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img2RE.jpeg'>)
+[2025-12-08 23:40:30,618] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img3RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img3RelM-convertido-de-webp.jpeg'>)
+[2025-12-08 23:40:30,624] ERROR weasyprint: Failed to load image at "file:///static/relatorios/imagenM4.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/imagenM4.jpeg'>)
+[2025-12-08 23:40:30,626] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 23:40:30,632] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)
+[2025-12-08 23:58:27,518] WARNING weasyprint: Ignored `print-color-adjust: exact` at 16:68, unknown property.
+[2025-12-08 23:58:27,519] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 26:7, invalid value.
+[2025-12-08 23:58:27,519] WARNING weasyprint: Ignored `display: grid` at 27:7, invalid value.
+[2025-12-08 23:58:27,519] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 28:7, unknown property.
+[2025-12-08 23:58:27,519] WARNING weasyprint: Ignored `grid-row: 2` at 31:7, unknown property.
+[2025-12-08 23:58:27,519] WARNING weasyprint: Ignored `place-self: center` at 32:7, unknown property.
+[2025-12-08 23:58:27,520] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 90:7.
+[2025-12-08 23:58:27,520] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 101:7.
+[2025-12-08 23:58:27,520] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 175:7, unknown property.
+[2025-12-08 23:58:27,521] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 238:7, unknown property.
+[2025-12-08 23:58:27,521] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 285:7, unknown property.
+[2025-12-08 23:58:27,522] WARNING weasyprint: Ignored `gap: 8px` at 326:7, unknown property.
+[2025-12-08 23:58:27,522] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 365:7, unknown property.
+[2025-12-08 23:58:27,523] WARNING weasyprint: Ignored `gap: 10px` at 436:5, unknown property.
+[2025-12-08 23:58:27,524] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 474:5, invalid value.
+[2025-12-08 23:58:27,524] WARNING weasyprint: Ignored `gap: 20px` at 507:3, unknown property.
+[2025-12-08 23:58:27,525] WARNING weasyprint: Ignored `gap: 12px` at 553:3, unknown property.
+[2025-12-08 23:58:27,525] WARNING weasyprint: Ignored `gap: 6px` at 563:3, unknown property.
+[2025-12-08 23:58:27,525] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 600:3, unknown property.
+[2025-12-08 23:58:27,525] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 610:5, unknown property.
+[2025-12-08 23:58:27,527] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 757:1, invalid value.
+[2025-12-08 23:58:27,527] WARNING weasyprint: Ignored `gap: 25px` at 766:3, unknown property.
+[2025-12-08 23:58:27,527] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 807:3, unknown property.
+[2025-12-08 23:58:27,528] WARNING weasyprint: Ignored `gap: 20px` at 815:3, unknown property.
+[2025-12-08 23:58:27,528] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 842:3, unknown property.
+[2025-12-08 23:58:27,528] WARNING weasyprint: Ignored `width: fit-content` at 851:3, invalid value.
+[2025-12-08 23:58:27,528] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 860:3, unknown property.
+[2025-12-08 23:58:27,528] WARNING weasyprint: Ignored `align-item:center` at 861:3, unknown property.
+[2025-12-08 23:58:27,529] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 919:3, unknown property.
+[2025-12-08 23:58:27,529] WARNING weasyprint: Ignored `gap: 12px` at 977:3, unknown property.
+[2025-12-08 23:58:27,530] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1059:3, unknown property.
+[2025-12-08 23:58:27,530] WARNING weasyprint: Ignored `gap: 8px` at 1096:3, unknown property.
+[2025-12-08 23:58:27,530] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1124:3, unknown property.
+[2025-12-08 23:58:27,533] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-08 23:58:27,535] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:58:27,535] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:58:27,535] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:58:27,585] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-08 23:58:27,595] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-08 23:58:27,596] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-08 23:58:27,597] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-08 23:58:27,597] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-08 23:58:27,598] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-08 23:58:27,599] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-08 23:58:27,600] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-08 23:58:27,932] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg'>)
+[2025-12-08 23:58:27,986] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 23:58:27,991] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 23:58:27,992] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)
+[2025-12-08 23:59:28,834] WARNING weasyprint: Ignored `print-color-adjust: exact` at 16:68, unknown property.
+[2025-12-08 23:59:28,834] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 26:7, invalid value.
+[2025-12-08 23:59:28,834] WARNING weasyprint: Ignored `display: grid` at 27:7, invalid value.
+[2025-12-08 23:59:28,834] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 28:7, unknown property.
+[2025-12-08 23:59:28,835] WARNING weasyprint: Ignored `grid-row: 2` at 31:7, unknown property.
+[2025-12-08 23:59:28,835] WARNING weasyprint: Ignored `place-self: center` at 32:7, unknown property.
+[2025-12-08 23:59:28,835] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 90:7.
+[2025-12-08 23:59:28,835] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 101:7.
+[2025-12-08 23:59:28,836] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 175:7, unknown property.
+[2025-12-08 23:59:28,837] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 238:7, unknown property.
+[2025-12-08 23:59:28,837] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 285:7, unknown property.
+[2025-12-08 23:59:28,838] WARNING weasyprint: Ignored `gap: 8px` at 326:7, unknown property.
+[2025-12-08 23:59:28,859] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 365:7, unknown property.
+[2025-12-08 23:59:28,860] WARNING weasyprint: Ignored `gap: 10px` at 436:5, unknown property.
+[2025-12-08 23:59:28,861] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 474:5, invalid value.
+[2025-12-08 23:59:28,861] WARNING weasyprint: Ignored `gap: 20px` at 507:3, unknown property.
+[2025-12-08 23:59:28,862] WARNING weasyprint: Ignored `gap: 12px` at 553:3, unknown property.
+[2025-12-08 23:59:28,862] WARNING weasyprint: Ignored `gap: 6px` at 563:3, unknown property.
+[2025-12-08 23:59:28,862] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 600:3, unknown property.
+[2025-12-08 23:59:28,862] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 610:5, unknown property.
+[2025-12-08 23:59:28,864] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 757:1, invalid value.
+[2025-12-08 23:59:28,864] WARNING weasyprint: Ignored `gap: 25px` at 766:3, unknown property.
+[2025-12-08 23:59:28,864] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 807:3, unknown property.
+[2025-12-08 23:59:28,864] WARNING weasyprint: Ignored `gap: 20px` at 815:3, unknown property.
+[2025-12-08 23:59:28,865] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 842:3, unknown property.
+[2025-12-08 23:59:28,865] WARNING weasyprint: Ignored `width: fit-content` at 851:3, invalid value.
+[2025-12-08 23:59:28,865] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 860:3, unknown property.
+[2025-12-08 23:59:28,865] WARNING weasyprint: Ignored `align-item:center` at 861:3, unknown property.
+[2025-12-08 23:59:28,866] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 919:3, unknown property.
+[2025-12-08 23:59:28,866] WARNING weasyprint: Ignored `gap: 12px` at 977:3, unknown property.
+[2025-12-08 23:59:28,867] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1059:3, unknown property.
+[2025-12-08 23:59:28,868] WARNING weasyprint: Ignored `gap: 8px` at 1096:3, unknown property.
+[2025-12-08 23:59:28,868] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1124:3, unknown property.
+[2025-12-08 23:59:28,870] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-08 23:59:28,872] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:59:28,872] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:59:28,872] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-08 23:59:28,920] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-08 23:59:28,931] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-08 23:59:28,931] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-08 23:59:28,932] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-08 23:59:28,932] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-08 23:59:28,934] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-08 23:59:28,935] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-08 23:59:28,936] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-08 23:59:29,267] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg'>)
+[2025-12-08 23:59:29,316] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 23:59:29,321] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-08 23:59:29,322] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)
+[2025-12-09 00:02:30,988] WARNING weasyprint: Ignored `print-color-adjust: exact` at 16:68, unknown property.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 26:7, invalid value.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Ignored `display: grid` at 27:7, invalid value.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 28:7, unknown property.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Ignored `grid-row: 2` at 31:7, unknown property.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Ignored `place-self: center` at 32:7, unknown property.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 90:7.
+[2025-12-09 00:02:30,989] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 101:7.
+[2025-12-09 00:02:30,990] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 175:7, unknown property.
+[2025-12-09 00:02:30,990] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 238:7, unknown property.
+[2025-12-09 00:02:30,991] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 285:7, unknown property.
+[2025-12-09 00:02:30,991] WARNING weasyprint: Ignored `gap: 8px` at 326:7, unknown property.
+[2025-12-09 00:02:30,992] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 365:7, unknown property.
+[2025-12-09 00:02:30,993] WARNING weasyprint: Ignored `gap: 10px` at 436:5, unknown property.
+[2025-12-09 00:02:30,993] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 474:5, invalid value.
+[2025-12-09 00:02:30,994] WARNING weasyprint: Ignored `gap: 20px` at 507:3, unknown property.
+[2025-12-09 00:02:30,994] WARNING weasyprint: Ignored `gap: 12px` at 553:3, unknown property.
+[2025-12-09 00:02:30,994] WARNING weasyprint: Ignored `gap: 6px` at 563:3, unknown property.
+[2025-12-09 00:02:30,995] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 600:3, unknown property.
+[2025-12-09 00:02:30,995] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 610:5, unknown property.
+[2025-12-09 00:02:30,996] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 757:1, invalid value.
+[2025-12-09 00:02:30,996] WARNING weasyprint: Ignored `gap: 25px` at 766:3, unknown property.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 807:3, unknown property.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `gap: 20px` at 815:3, unknown property.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 842:3, unknown property.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `width: fit-content` at 851:3, invalid value.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 860:3, unknown property.
+[2025-12-09 00:02:30,997] WARNING weasyprint: Ignored `align-item:center` at 861:3, unknown property.
+[2025-12-09 00:02:30,998] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 919:3, unknown property.
+[2025-12-09 00:02:30,999] WARNING weasyprint: Ignored `gap: 12px` at 977:3, unknown property.
+[2025-12-09 00:02:31,000] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1059:3, unknown property.
+[2025-12-09 00:02:31,000] WARNING weasyprint: Ignored `gap: 8px` at 1096:3, unknown property.
+[2025-12-09 00:02:31,001] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1124:3, unknown property.
+[2025-12-09 00:02:31,003] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-09 00:02:31,005] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:02:31,005] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:02:31,005] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:02:31,053] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-09 00:02:31,063] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-09 00:02:31,064] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-09 00:02:31,064] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-09 00:02:31,065] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-09 00:02:31,066] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-09 00:02:31,068] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-09 00:02:31,068] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-09 00:02:31,373] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/AVN_Port.jpeg'>)
+[2025-12-09 00:02:31,423] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-09 00:02:31,428] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-09 00:02:31,430] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)
+[2025-12-09 00:04:38,218] WARNING weasyprint: Ignored `print-color-adjust: exact` at 17:68, unknown property.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Ignored `min-height: calc(100vh - 38mm)` at 27:7, invalid value.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Ignored `display: grid` at 28:7, invalid value.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Ignored `grid-template-rows: 75% 25%` at 29:7, unknown property.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Ignored `grid-row: 2` at 32:7, unknown property.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Ignored `place-self: center` at 33:7, unknown property.
+[2025-12-09 00:04:38,219] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 91:7.
+[2025-12-09 00:04:38,220] WARNING weasyprint: Error: Expected <ident> for declaration name, got literal. at 102:7.
+[2025-12-09 00:04:38,220] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.1)` at 176:7, unknown property.
+[2025-12-09 00:04:38,221] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)` at 239:7, unknown property.
+[2025-12-09 00:04:38,221] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)` at 286:7, unknown property.
+[2025-12-09 00:04:38,222] WARNING weasyprint: Ignored `gap: 8px` at 327:7, unknown property.
+[2025-12-09 00:04:38,222] WARNING weasyprint: Ignored `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)` at 366:7, unknown property.
+[2025-12-09 00:04:38,224] WARNING weasyprint: Ignored `gap: 10px` at 437:5, unknown property.
+[2025-12-09 00:04:38,224] WARNING weasyprint: Ignored `width: calc((100% - 26%) / 9)` at 475:5, invalid value.
+[2025-12-09 00:04:38,225] WARNING weasyprint: Ignored `gap: 20px` at 508:3, unknown property.
+[2025-12-09 00:04:38,225] WARNING weasyprint: Ignored `gap: 12px` at 554:3, unknown property.
+[2025-12-09 00:04:38,226] WARNING weasyprint: Ignored `gap: 6px` at 564:3, unknown property.
+[2025-12-09 00:04:38,226] WARNING weasyprint: Ignored `box-shadow: 0 3px 8px rgba(0,0,0,0.15)` at 601:3, unknown property.
+[2025-12-09 00:04:38,226] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08) ` at 611:5, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `width: calc(100% / 6)` at 758:1, invalid value.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `gap: 25px` at 767:3, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15)` at 808:3, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `gap: 20px` at 816:3, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 843:3, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `width: fit-content` at 852:3, invalid value.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25)` at 861:3, unknown property.
+[2025-12-09 00:04:38,228] WARNING weasyprint: Ignored `align-item:center` at 862:3, unknown property.
+[2025-12-09 00:04:38,229] WARNING weasyprint: Ignored `box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)` at 920:3, unknown property.
+[2025-12-09 00:04:38,230] WARNING weasyprint: Ignored `gap: 12px` at 978:3, unknown property.
+[2025-12-09 00:04:38,230] WARNING weasyprint: Ignored `box-shadow: 0 1px 2px rgba(0,0,0,0.08)` at 1060:3, unknown property.
+[2025-12-09 00:04:38,231] WARNING weasyprint: Ignored `gap: 8px` at 1097:3, unknown property.
+[2025-12-09 00:04:38,231] WARNING weasyprint: Ignored `box-shadow: 0 2px 6px rgba(0,0,0,0.15)` at 1125:3, unknown property.
+[2025-12-09 00:04:38,233] WARNING weasyprint: Ignored `gap:20px` at 1:52, unknown property.
+[2025-12-09 00:04:38,235] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:04:38,235] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:04:38,235] WARNING weasyprint: Ignored `box-shadow:0 3px 6px rgba(0,0,0,0.25)` at 1:46, unknown property.
+[2025-12-09 00:04:38,286] ERROR weasyprint: Failed to load image at "file:///static/relatorios/logo.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/logo.png'>)
+[2025-12-09 00:04:38,297] ERROR weasyprint: Failed to load image at "file:///static/relatorios/plato.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/plato.jpg'>)
+[2025-12-09 00:04:38,297] ERROR weasyprint: Failed to load image at "file:///static/relatorios/massac.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/massac.png'>)
+[2025-12-09 00:04:38,298] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-1-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-1-6.png'>)
+[2025-12-09 00:04:38,298] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img-2-6.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img-2-6.png'>)
+[2025-12-09 00:04:38,299] ERROR weasyprint: Failed to load image at "file:///static/relatorios/fruta.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/fruta.png'>)
+[2025-12-09 00:04:38,301] ERROR weasyprint: Failed to load image at "file:///static/relatorios/bala.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/bala.jpg'>)
+[2025-12-09 00:04:38,302] ERROR weasyprint: Failed to load image at "file:///static/relatorios/cu.png" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/cu.png'>)
+[2025-12-09 00:04:38,749] ERROR weasyprint: Failed to load image at "file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-09 00:04:38,754] ERROR weasyprint: Failed to load image at "file:///static/relatorios/AVN_fondoLimpio.jpg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/AVN_fondoLimpio.jpg'>)
+[2025-12-09 00:04:38,756] ERROR weasyprint: Failed to load image at "file:///static/relatorios/img5RelM-convertido-de-webp.jpeg" (URLError: <urlopen error [Errno 2] No such file or directory: '/static/relatorios/img5RelM-convertido-de-webp.jpeg'>)

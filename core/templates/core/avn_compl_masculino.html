@@ -9,7 +9,10 @@
     @page {
       size: A4;
       margin: 0mm 0mm 5mm 0mm;       
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN_Port.jpeg") no-repeat center center;
+      background: url("{{ static_base }}AVN_Port.jpeg") no-repeat center center;
+
+
+
       background-size: cover;
     }
     @page:first {
@@ -40,7 +43,8 @@
 
     @page page2 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img2RE.jpeg") no-repeat center center;
+      background: url("file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/img2RE.jpeg") no-repeat center center;
+
       background-size: cover;
       margin: 0;
       @top-right {
@@ -52,7 +56,7 @@
     /* --- Página 3 --- */
     @page page3 {
       size: A4;
-   background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img3RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background: url("file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/img3RelM-convertido-de-webp.jpeg") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -64,7 +68,8 @@
     /* --- Página 4 --- */
     @page page4 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/imagenM4.jpeg") no-repeat center center;
+      background: url("file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/imagenM4.jpeg") no-repeat center center;
+
       background-size: cover;
       margin: 0;
       @top-right {
@@ -76,7 +81,9 @@
     /* --- Página 5 --- */
     @page page5 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      background: url("file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/AVN_fondoLimpio.jpg") no-repeat center center;
+
+
       background-size: cover;
       margin: 0;
       @top-right {
@@ -87,7 +94,8 @@
 
     @page page6 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      <img src="file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/logo.png" alt="Logo Nutrição Esportiva" class="logo-medico">
+
       background-size: cover;
       margin: 0;
       @top-right {
@@ -97,7 +105,8 @@
     }
     @page page7 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
+      <img class="img-frutas" src="file:///home/diego/Work/Django/Emagrecimiento/static/relatorios/fruta.png">
+
       background-size: cover;
       margin: 0;
       @top-right {
@@ -107,8 +116,7 @@
     }
     @page page8 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/AVN+fondoLimpio.jpg") no-repeat center center;
-      background-size: cover;
+      background: url("{% static 'relatorios/AVN_fondoLimpio.jpg' %}") no-repeat center center;
       margin: 0;
       @top-right {
         content: element(run-hdr);    /* inyecta el header en @top-right */
@@ -118,7 +126,7 @@
     /* --- Página 9 --- */
     @page page9 {
       size: A4;
-      background: url("https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img5RelM-convertido-de-webp.jpeg") no-repeat center center;
+      background: url("{% static 'relatorios/img5RelM-convertido-de-webp.jpeg' %}") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
@@ -1183,7 +1191,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page2">
       <div class="run-hdr">
         <img
-          src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          src="{% static 'relatorios/logo.png' %}"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>
@@ -1352,7 +1360,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page3;">     
       <div class="run-hdr">
         <img
-          src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          src="{% static 'relatorios/logo.png' %}"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>      
@@ -1491,7 +1499,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
  
    <section class="page-break with-header" style="page: page5;">
     <div class="run-hdr">
-      <img src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+      <img src="{% static 'relatorios/logo.png' %}"
            alt="Logo Nutrição Esportiva" class="logo-medico">
     </div>
   
@@ -1507,7 +1515,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
   
           <div class="conteudo-secao5">
             <div class="imagem-secao5">
-              <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/plato.jpg">
+              <img src="{% static 'relatorios/plato.jpg' %}">
             </div>
   
             <div class="texto-secao5">
@@ -1547,8 +1555,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
           </div>
   
           <div class="imagem-dupla">
-            <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/massac.png" alt="Mastigação e Saciedade">
-          
+            <img src="{% static 'relatorios/massac.png' %}" alt="Mastigação e Saciedade">          
             <div class="capsula-inferior vermelha">Mastigação</div>
             <div class="capsula-inferior azul">Saciedade</div>
           </div>
@@ -1559,8 +1566,8 @@ PAG 7 RC-RESUMO DE RESULTADOS
   
    <section class="page-break with-header" style="page: page6;">
       <div class="run-hdr">
-        <img src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
-            alt="Logo Nutrição Esportiva" class="logo-medico">
+        <img src="{% static 'relatorios/logo.png' %}"
+        alt="Logo Nutrição Esportiva" class="logo-medico">
       </div>  
       <div class="relatorio-capa" style="margin:45mm auto 0 auto; position:relative;">
         <div class="bloco-5">       
@@ -1578,7 +1585,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             </div>  
             <div class="imagem-dupla" style="text-align:center;">
               <img 
-                src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img-1-6.png" 
+                src="{% static 'relatorios/img-1-6.png' %}"
                 alt="Mastigação e Saciedade"
                 style="width:480px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
             </div>
@@ -1619,7 +1626,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             </div>
             <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
               <img 
-                src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/img-2-6.png"
+                src="{% static 'relatorios/img-2-6.png' %}"
                 alt="Mastigação e Saciedade"
                 style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
             </div>
@@ -1640,7 +1647,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             <p><strong>SEM TREINO –</strong> {{ kcal_3 }} kcal</p>
             <p><strong>Final de Semana –</strong> PLANO ALIMENTAR <span class="extra">+ 2 REFEIÇÕES EXTRAS</span></p>
           </div> 
-          <img class="img-frutas" src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/fruta.png" alt="Frutas decorativas">
+          <img class="img-frutas" src="{% static 'relatorios/fruta.png' %}">
 
         </div>  
 
@@ -1710,7 +1717,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
       </div>
       <div class="imagem-dupla" style="text-align:center; margin-top:-2mm">
         <img 
-          src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/bala.jpg"
+          src="{% static 'relatorios/bala.jpg' %}"
           alt="Mastigação e Saciedade"
           style="width:700px; height:auto; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.25);">
       </div>  
@@ -1719,7 +1726,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
     <section class="page-break with-header"style="page: page9;">   
       <div class="run-hdr">
         <img
-          src="https://newemagrecimento2.s3.amazonaws.com/django-summernote/2025-01-30/c2789af5-32a6-4184-a2ce-5c4e32b581f5.png"
+          src="{% static 'relatorios/logo.png' %}"
           alt="Logo Nutrição Esportiva"
           class="logo-medico">
       </div>    
@@ -1737,7 +1744,7 @@ PAG 7 RC-RESUMO DE RESULTADOS
             <br>
             <br>
           </div>      
-          <img src="https://newemagrecimento2.s3.sa-east-1.amazonaws.com/django-summernote/2025-10-16/cu.png" 
+          <img src="{% static 'relatorios/cu.png' %}"
               alt="Cápsulas"
               style="position:absolute; top:0px; right:0px; width:250px; height:auto;">
         </div>    
