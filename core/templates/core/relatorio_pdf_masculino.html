@@ -16,16 +16,14 @@
       background-size: cover;
     }
 
-    /* --- Reset mínimo --- */
     * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     html, body { height: 100%; }
     body { font-family: sans-serif; font-size: 12px; color: #111; margin: 0; }
 
-    /* --- Utilidades --- */
     .page-break { page-break-before: always; }
     .avoid-break { page-break-inside: avoid; }
 
-    /* --- PORTADA --- */
+
     .cover{
       min-height: calc(100vh - 38mm);   
       display: grid;
@@ -54,7 +52,7 @@
       background-size: cover;
       margin: 0;
       @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
+        content: element(run-hdr);    
         vertical-align: top;
       }
     }
@@ -66,25 +64,22 @@
       background-size: cover;
       margin: 0;
       @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
+        content: element(run-hdr);    
         vertical-align: top;
       }
     }
     
-    /* --- Página 5 --- */
     @page page5 {
       size: A4;
       background: url("{{ static_base }}img5RelM-convertido-de-webp.jpeg") no-repeat center center;
       background-size: cover;
       margin: 0;
       @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
+        content: element(run-hdr);    
         vertical-align: top;
       }
     }
-
-
-    
+   
     .run-hdr {
       position: running(run-hdr);
       text-align: right;
@@ -93,7 +88,7 @@
     }
     
     .logo-medico {
-      width: 28mm;       /* tamaño ideal */
+      width: 28mm;    
       height: auto;
       object-fit: contain;
       display: block;
@@ -105,7 +100,7 @@
     
     .page-break { page-break-before: always; }
     
-    /*********PAG2  TABLA 1********/
+
     .box-retornos.centrada{
       max-width: 600px;
       width: min(92vw, 720px);
@@ -136,7 +131,7 @@
     .tabla-retornos tr:nth-child(odd){ background: #e1e1e1; }
     .tabla-retornos tr:nth-child(even){ background: #ffffff; }
        
-    /*********PAG2  TABLA 2********/
+
     .tabla-metricas-wrap {
       width: 80%;             
       max-width: 700px;       
@@ -198,8 +193,6 @@
   .tabla-metricas tr > *:last-child{ border-right:0; }
 
   .tabla-metricas td:empty::before{ content:"\00a0"; }
-
-  /*********PAG2  TABLA 3********/
   .tabla-riscos-wrap3 {
     width: 80%;              
     max-width: 700px;
@@ -248,10 +241,8 @@
 
   .tabla-riscos th:not(:first-child),
   .tabla-riscos td:not(:first-child) {
-    width: calc((100% - 26%) / 9); /* 🔹 divide el resto equitativamente (para 9 columnas C1–C9) */
+    width: calc((100% - 26%) / 9); 
   }
-
-
 
   .tabla-riscos th,
 .tabla-riscos td {
@@ -298,7 +289,7 @@
   }
   .fila {
     display: flex;
-    justify-content: space-between; /* o center, según lo que necesites */
+    justify-content: space-between; 
     align-items: flex-start;
     width: 100%;        
     margin: 0;          

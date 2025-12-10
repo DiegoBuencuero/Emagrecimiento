@@ -20,22 +20,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 mimetypes.add_type("text/css", ".css", True)
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECURE_SSL_REDIRECT = False
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,israeladolfo.pythonanywhere.com").split(",")
-# Application definition
+
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "False"
 
@@ -87,23 +82,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projeto.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
-
-# if DEVELOPMENT_MODE is True:
-#     DATABASES = {
-#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-#     }
-# elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-#     if os.getenv("DATABASE_URL", None) is None:
-#         raise Exception("DATABASE_URL environment variable not defined")
-#     DATABASES = {
-#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-#     }
-
-
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
@@ -144,8 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
 
@@ -157,28 +133,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-#STATIC_URL = '/home/emagrecimentodefinitivo/apps_wsgi/projeto/static/'
-# DEFAULT_FILE_STORAGE = os.getenv("DEFAULT_FILE_STORAGE", "django.core.files.storage.FileSystemStorage")
-# STATICFILES_STORAGE = os.getenv("STATICFILES_STORAGE", "django.contrib.staticfiles.storage.StaticFilesStorage")
-# AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", None)
-# AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", None)
-# AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME", None)
-# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-# AWS_S3_OBJECT_PARAMETERS = {
-#     'CacheControl': 'max-age=86400',
-# }
-# AWS_DEFAULT_ACL = "public-read"
-# AWS_QUERYSTRING_AUTH = False
-# AWS_S3_FILE_OVERWRITE = True
-# AWS_HEADERS = {
-#     'Access-Control-Allow-Origin': '*',
-# }
-
-# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
@@ -193,13 +147,6 @@ STATICFILES_DIRS = [
 #     BASE_DIR / 'staticfiles',
 # ]
 MEDIA_ROOT = BASE_DIR / 'media'
-
-
-    
-    
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -244,12 +191,12 @@ LOGGING = {
         },
     },
     'handlers': {
-        'console': {  # esto manda los errores a los Runtime Logs
+        'console': {  
             'class': 'logging.StreamHandler',
             'stream': sys.stdout,
             'formatter': 'verbose',
         },
-        'file': {  # opcional: también guardalos en /app/error.log dentro del contenedor
+        'file': {  
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'error.log'),
             'formatter': 'verbose',

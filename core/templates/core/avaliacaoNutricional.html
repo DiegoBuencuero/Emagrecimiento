@@ -470,7 +470,7 @@
   background-color: #2b6ca3;
   color: #fff;
   font-weight: 500;
-  border: 1px solid #ddd;  /* ✅ asegura borde igual que las demás */
+  border: 1px solid #ddd; 
   height: 24px;
   padding: 6px 4px;
   text-align: center;
@@ -592,7 +592,6 @@
     overflow: visible;              
   }
   
-  /* 🔹 Título flotante y centrado */
   .bloco-titulo {
     position: absolute;
     top: -14px;
@@ -636,7 +635,6 @@
 
   </head>
   <body>
-      <!-- Contenido de la PÁGINA 1 -->
     <section style="height:259mm; margin:0; padding:0;">
       <div style="height:194.25mm;"></div>
       <div style="
@@ -663,7 +661,6 @@
         </div>
       </div>
     </section>
-      <!-- Contenido de la PÁGINA 2 -->
     <section class="page-break with-header"style="page: page2">
       <div class="run-hdr">
         <img
@@ -839,8 +836,6 @@
               <td>{{ t.coxa.ci|default:"-" }}</td><td>{{ t.coxa.r0|default:"-" }}</td><td>{{ t.coxa.r15|default:"-" }}</td><td>{{ t.coxa.r30|default:"-" }}</td><td>{{ t.coxa.r45|default:"-" }}</td><td>{{ t.coxa.r60|default:"-" }}</td><td>{{ t.coxa.m1|default:"-" }}</td><td>{{ t.coxa.m2|default:"-" }}</td><td>{{ t.coxa.m3|default:"-" }}</td>
             </tr>
           </tbody>
-
-          
         </table>
       </div>
       <div style="position:relative;z-index:99999;background:#2f6fa3;border-radius:9999px;
@@ -923,8 +918,6 @@
               <strong class="ma">MA</strong> – Muito Aumentado
             </p>
           </div>
-      
-          <!-- 🔹 Bloque lateral -->
           <div class="tabla-riscos-info">
             <p>
               Elas predizem a probabilidade de desenvolver, a longo prazo, doenças do coração, diabetes, entre outras.
@@ -933,7 +926,6 @@
         </div>
       </div>
     </section>
-      <!-- Contenido de la PÁGINA 3 -->
     <section class="page-break with-header"style="page: page3;">     
       <div class="run-hdr">
         <img
@@ -969,13 +961,9 @@
           </div>
         </div>  
         <div class="box-resultados" style="padding:16px 20px; margin-top:-10px; display:flex; gap:20px; flex-wrap:wrap;">
-
-          <!-- 🔹 Columna imagen -->
           <div class="RC-resumo-img">
             <img src="" alt="" style="border-radius:10px;">
           </div>
-        
-          <!-- 🔹 Columna datos -->
           <div class="RC-resumo-dados">
             <div class="RC-titulo">
               <div style="position:relative; z-index:99999; background:#2f6fa3; border-radius:9999px;
@@ -1005,7 +993,6 @@
                 <div class="capsula-b" style="background:#dbeafe; color:#2b6ca3; font-weight:700; font-size:15px; border-radius:9999px; text-align:center; padding:10px 0;">{{ diferencas.peso }} Kg</div>
               </div>
             </div>    
-
             <div class="capsula-grupo" style="height:90px; display:flex; margin-top:30px; background:#f2f2f2; border-radius:100px">
               <div class="capsula-lado-esq" 
                 style="flex:1; display:flex; align-items:center; justify-content:flex-start; border-radius:100px; padding:0 16px;height:90px;">
@@ -1079,7 +1066,6 @@
               Composição Corporal
             </div>
             <div style="background:#f5f5f5; border-radius:25px; padding:10px 15px; margin-top:0px;">
-              <!-- 🔹 Massa Magra -->
               <div style="display:flex; align-items:center; justify-content:flex-start; height:50px;">
                 <div style="flex:0 0 15%; display:flex; justify-content:center; align-items:center;">
                   {% if diferencas.peso_MM_descricao == "DIMINUICAO" %}
@@ -1094,7 +1080,6 @@
                   <span style="color:#1e3a8a; font-weight:700; font-size:11pt;">{{ diferencas.peso_MM_descricao|title }} Massa Magra</span>
                 </div>
               </div>
-              <!-- 🔹 Percentual de Gordura -->
               <div style="display:flex; align-items:center; justify-content:flex-start; height:50px;">
                 <div style="flex:0 0 15%; display:flex; justify-content:center; align-items:center;">
                   {% if diferencas.percentual_gordura_descricao == "DIMINUICAO" %}
@@ -1112,7 +1097,6 @@
 
             </div>
     </section>
-    <!-- Contenido de la PÁGINA 4 -->
     <section class="page-break with-header"style="page: page4;">     
       <div class="capsula-container-full">
         <div class="capsula-izq-full">FREQUÊNCIA:</div>
@@ -1185,8 +1169,6 @@
         <div class="bloco-conteudo">       
         </div>
       </div>
-    
-      <!-- 🔹 Firma -->
       <div class="rodape">
         <p>Fico à disposição para quaisquer esclarecimentos que se fizerem necessários.<br>Atenciosamente,</p>
       </div>    
