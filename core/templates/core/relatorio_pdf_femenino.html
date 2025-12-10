@@ -40,7 +40,6 @@
 
     @page page2 {
       size: A4;
-      {% comment %} background-image: url("{{ static_base }}relatorios/img2RE.jpg"); {% endcomment %}
       background: url("{{ static_base }}img2RE.jpg") no-repeat center center;
       background-size: cover;
       margin: 0;
@@ -50,36 +49,14 @@
       }
     }
     
-    {% comment %} /* --- Página 3 --- */
-    @page page3 {
-      size: A4;
-      background-image: url("{{ static_base }}relatorios/EVN_Feminina2.jpg")no-repeat center center;
-      background-size: cover;
-      margin: 0;
-      @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
-        vertical-align: top;
-      }
-    } {% endcomment %}
     @page page3 {
       size: A4;
       margin: 0;
-      background: url("{{ static_base }}relatorios/EVN_Feminina2.jpg") no-repeat center center;
+      background: url("{{ static_base }}relatorios/EVNFeminina10.jpg") no-repeat center center;
       background-size: cover;
       @top-right { content: element(run-hdr); }
     }
 
-    {% comment %} /* --- Página 4 --- */
-    @page page4 {
-      size: A4;
-      background-image: url("{{ static_base }}relatorios/imagenM4.jpeg")no-repeat center center;
-      background-size: cover;
-      margin: 0;
-      @top-right {
-        content: element(run-hdr);    /* inyecta el header en @top-right */
-        vertical-align: top;
-      }
-    } {% endcomment %}
     @page page4 {
       size: A4;
       margin: 0;
@@ -87,17 +64,7 @@
       background-size: cover;
       @top-right { content: element(run-hdr); }
     }
-    {% comment %} /* --- Página 5 --- */
-    @page page5 {
-      size: A4;
-      background-image: url("{{ static_base }}relatorios/img5RelM-convertido-de-webp.jpeg")no-repeat center center;
-      background-size: cover;
-      margin: 0;
-      @top-right {
-        content: element(run-hdr);    
-        vertical-align: top;
-      }
-    } {% endcomment %}
+
     @page page5 {
       size: A4;
       margin: 0;
