@@ -2508,30 +2508,27 @@ class CapaRelatorioView(TemplateView):
     
 
     def _gerar_pdf(self, context):
+        # 🔹 base correcta para estáticos (CRÍTICO)
+        context["static_base"] = self.request.build_absolute_uri("/static/relatorios/")
 
         html_string = render_to_string(self.template_name, context)
 
-        css = CSS(string='''
-            @page { size: A4; margin: 20mm; }
-            body { font-family: 'Open Sans', sans-serif; font-size: 11pt; color: #333; }
-            .RC-item { background: #f7f9fc; border-radius: 8px; padding: 8px 14px; margin-bottom: 6px; }
-            .RC-label { font-weight: 600; color: #1e3a8a; }
-            .RC-desc { font-size: 10pt; color: #555; margin-left: 6px; }
-        ''')
+        css = CSS(string="""
+            @page { size: A4; margin: 0; }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 11pt;
+                color: #333;
+            }
+        """)
 
-        with tempfile.NamedTemporaryFile(delete=True) as output:
-            HTML(
-                string=html_string,
-                base_url=self.request.build_absolute_uri('/')  # ← ESTA ES LA CLAVE
-            ).write_pdf(
-                output.name,
-                stylesheets=[css]
-            )
-            output.seek(0)
-            pdf = output.read()
+        pdf = HTML(
+            string=html_string,
+            base_url=self.request.build_absolute_uri("/")
+        ).write_pdf(stylesheets=[css])
 
-        response = HttpResponse(pdf, content_type='application/pdf')
-        response['Content-Disposition'] = 'inline; filename="relatorio_capa.pdf"'
+        response = HttpResponse(pdf, content_type="application/pdf")
+        response["Content-Disposition"] = 'inline; filename="relatorio_evolucao.pdf"'
         return response
 
 
