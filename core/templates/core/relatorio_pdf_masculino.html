@@ -42,9 +42,7 @@
       background-size: cover;
     
       @top-right {
-        content: url("{{ static_base }}logo.png");
-        margin-top: 10mm;
-        margin-right: 10mm;
+        content: element(header-logo);
       }
     }
     
@@ -81,6 +79,20 @@
         content: element(run-hdr);    
         vertical-align: top;
       }
+    }
+
+    .header-logo {
+      position: running(header-logo);
+      width: 28mm;
+      margin-top: 10mm;
+      margin-right: 10mm;
+      text-align: right;
+    }
+    
+    .header-logo img {
+      width: 28mm;
+      height: auto;
+      display: block;
     }
    
     .run-hdr {
@@ -660,12 +672,9 @@
     </section>
       <!-- Contenido de la PÁGINA 2 -->
     <section class="page-break with-header"style="page: page2">
-      {% comment %} <div class="run-hdr">
-        <img
-          src="{{ static_base }}logo.png" alt="Logo" class="logo"
-          alt="Logo Nutrição Esportiva"
-          class="logo-medico">
-      </div> {% endcomment %}
+      <div class="header-logo">
+        <img src="{{ static_base }}logo.png" alt="Logo">
+      </div>
       <div class="box-retornos centrada" >    
         <table class="tabla-retornos">
           <colgroup>
