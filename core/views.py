@@ -2804,10 +2804,15 @@ class RelatorioEvolucaoNew(TemplateView):
         ''')
 
         with tempfile.NamedTemporaryFile(delete=True) as output:
-            HTML(string=html_string, base_url=str(settings.BASE_DIR)).write_pdf(
-                output.name,
-                stylesheets=[css]
+            # HTML(string=html_string, base_url=str(settings.BASE_DIR)).write_pdf(
+            #     output.name,
+            #     stylesheets=[css]
+            # )
+            HTML(
+                string=html_string,
+                base_url=self.request.build_absolute_uri('/')
             )
+
             output.seek(0)
             pdf = output.read()
 
