@@ -2792,30 +2792,29 @@ class RelatorioEvolucaoNew(TemplateView):
         # DEVOLVER DIRECTO EL PDF (igual que CapaRelatorioView)
         return self._gerar_pdf(context)
 
-def _gerar_pdf(self, context):
-    html_string = render_to_string(self.template_name, context)
+    def _gerar_pdf(self, context):
+        html_string = render_to_string(self.template_name, context)
 
-    css = CSS(string='''
-        @page { size: A4; margin: 20mm; }
-        body { font-family: 'Open Sans', sans-serif; font-size: 11pt; color: #333; }
-    ''')
+        css = CSS(string='''
+            @page { size: A4; margin: 20mm; }
+            body { font-family: 'Open Sans', sans-serif; font-size: 11pt; color: #333; }
+        ''')
 
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as output:
-        HTML(
-            string=html_string,
-            base_url=self.request.build_absolute_uri('/')  # CLAVE
-        ).write_pdf(
-            output.name,
-            stylesheets=[css]
-        )
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as output:
+            HTML(
+                string=html_string,
+                base_url=self.request.build_absolute_uri('/')
+            ).write_pdf(
+                output.name,
+                stylesheets=[css]
+            )
 
-        output.seek(0)
-        pdf = output.read()
+            output.seek(0)
+            pdf = output.read()
 
-    response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'inline; filename="relatorio_evolucao.pdf"'
-    return response
-
+        response = HttpResponse(pdf, content_type='application/pdf')
+        response['Content-Disposition'] = 'inline; filename="relatorio_evolucao.pdf"'
+        return response
 
 
 class Calculadora_test(TemplateView):
