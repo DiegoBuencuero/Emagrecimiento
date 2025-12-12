@@ -2511,7 +2511,6 @@ class CapaRelatorioView(TemplateView):
 
         html_string = render_to_string(self.template_name, context)
 
-        # --- CSS ---
         css = CSS(string='''
             @page { size: A4; margin: 20mm; }
             body { font-family: 'Open Sans', sans-serif; font-size: 11pt; color: #333; }
@@ -2520,17 +2519,21 @@ class CapaRelatorioView(TemplateView):
             .RC-desc { font-size: 10pt; color: #555; margin-left: 6px; }
         ''')
 
-        # --- Generar PDF ---
-        start_pdf = time.time()
         with tempfile.NamedTemporaryFile(delete=True) as output:
-            HTML(string=html_string, base_url=str(settings.BASE_DIR)).write_pdf(output.name, stylesheets=[css])
+            HTML(
+                string=html_string,
+                base_url=self.request.build_absolute_uri('/')  # ← ESTA ES LA CLAVE
+            ).write_pdf(
+                output.name,
+                stylesheets=[css]
+            )
             output.seek(0)
             pdf = output.read()
 
         response = HttpResponse(pdf, content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename="relatorio_capa.pdf"'
-
         return response
+
 
 # === Logging para debug controlado (opcional) ===
 logger = logging.getLogger(__name__)
