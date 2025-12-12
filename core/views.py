@@ -1,6 +1,6 @@
 from django.core.mail import EmailMultiAlternatives
 from django.db.models import Q
-import os, base64,io, time, tempfile
+import os
 from .formulas import *
 from time import sleep
 from datetime import datetime, timedelta, date
@@ -14,19 +14,24 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from .forms import CadastroForm
 from django.http import HttpResponse
+import base64
+import io
 import PIL.Image as Image
 from django.core.files.images import ImageFile
 from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
+import tempfile
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib.staticfiles import finders
 import logging
 
 import time
-
-def log_t(msg):
-    print(f"[{time.time()}] {msg}")
+import tempfile
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+from weasyprint import HTML, CSS
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,130 +44,51 @@ def error_500(request, *args, **kwargs):
     return render(request, 'core/error_500.html')
 
 
-def log(msg):
-    print(f"[{time.time()}] {msg}")
-
-
-class Index(TemplateView):
-    template_name = 'core/dashboard.html'
-
-    def get(self, *args, **kwargs):
-        log("=== INICIO Index.get ===")
-
-        if self.request.user.is_authenticated:
-            log("Usuario autenticado")
-
-            usuario_username = self.request.user.username
-            log("Buscando usuario en BD...")
-
-            # ⛔ ESTA QUERY SUELA SER LENTA → LA MEDIMOS
-            inicio = time.time()
-            existe = models.Usuario.objects.filter(usuario=usuario_username).exists()
-            log(f"Tiempo filter(exists): {time.time() - inicio:.4f} sec")
-
-            if not existe:
-                log("Usuario NO encontrado en BD")
-                messages.error(self.request, "Usuário não encontrado")
-                return redirect('login')
-
-            log("Usuario encontrado. Cargando datos completos...")
-
-            # ⛔ ESTA GET TAMBIÉN PUEDE SER LENTA
-            inicio = time.time()
-            usuario = models.Usuario.objects.get(usuario=usuario_username)
-            log(f"Tiempo get(): {time.time() - inicio:.4f} sec")
-
-            # —— Lógica de datos personales ——
-            if usuario.dados_pessoais:
-                log("Usuario tiene dados_pessoais")
-
-                if usuario.tipo_plano == 0:
-                    log("Usuario sin plano → redirect pedido")
-                    messages.error(self.request, "Você precisa contratar um pacote para ter acesso ao sistema.")
-                    return redirect('pedidos:pedido')
-
-                if not usuario.assistiu_video:
-                    log("Usuario sin assistir video → redirect video")
-                    return redirect('video_explicativo')
-
-                log("Usuario OK → redirect index_2")
-                return redirect('index_2')
-
-            log("Usuario NO tiene dados_pessoais → armando contexto")
-
-            # ⛔ ESTA ES SOSPECHOSA → la medimos
-            inicio = time.time()
-            pagina = list(models.DashBoard.objects.all().values())[0]
-            log(f"Tiempo cargando DashBoard: {time.time() - inicio:.4f} sec")
-
-            context = {
-                'usuario': usuario,
-                'pagina': pagina,
-                'sem_avaliacao': self.request.GET.get('sem_avaliacao'),
-                'sem_tempo': self.request.GET.get('sem_tempo'),
-            }
-
-        else:
-            log("USUARIO NO autenticado → sólo cargar página")
-
-            inicio = time.time()
-            pagina = list(models.DashBoard.objects.all().values())[0]
-            log(f"Tiempo cargando DashBoard: {time.time() - inicio:.4f} sec")
-
-            context = {'pagina': pagina}
-
-        log("Renderizando dashboard.html...")
-        inicio = time.time()
-        response = render(self.request, self.template_name, context)
-        log(f"Tiempo render(): {time.time() - inicio:.4f} sec")
-
-        log("=== FIN Index.get ===")
-        return response
 # class Redirecionador(TemplateView):
 #     template_name = ""
 
 #     def get(self, *args, **kwargs):
 #         return redirect('index')
 
-# class Index(TemplateView):
-#     template_name = 'core/dashboard.html'
+class Index(TemplateView):
+    template_name = 'core/dashboard.html'
 
-#     def get(self, *args, **kwargs):
-#         print("peguei usuário")
-#         if self.request.user.is_authenticated:
-#             print("usuario autenticado")
-#             usuario = self.request.user.username
-#             if not list(models.Usuario.objects.filter(usuario=usuario).values()):
-#                 messages.add_message(
-#                     self.request, messages.ERROR, "Usuário não encontrado")
-#                 return redirect('login')
+    def get(self, *args, **kwargs):
+        print("peguei usuário")
+        if self.request.user.is_authenticated:
+            print("usuario autenticado")
+            usuario = self.request.user.username
+            if not list(models.Usuario.objects.filter(usuario=usuario).values()):
+                messages.add_message(
+                    self.request, messages.ERROR, "Usuário não encontrado")
+                return redirect('login')
 
-#             usuario = models.Usuario.objects.get(usuario=self.request.user.username)
-#             #se o usuário possui dados pessoais, significa que já se cadastrou
-#             if usuario.dados_pessoais:
-#                 print("possui dados pessoais")
-#                 #se o usuário se cadastrou mas não contratou um pacote, redirecinar ele para compra do pacote
-#                 if usuario.tipo_plano == 0:
-#                     messages.error(self.request, "Você precisa contratar um pacote para ter acesso ao sistema.")
-#                     return redirect('pedidos:pedido')
+            usuario = models.Usuario.objects.get(usuario=self.request.user.username)
+            #se o usuário possui dados pessoais, significa que já se cadastrou
+            if usuario.dados_pessoais:
+                print("possui dados pessoais")
+                #se o usuário se cadastrou mas não contratou um pacote, redirecinar ele para compra do pacote
+                if usuario.tipo_plano == 0:
+                    messages.error(self.request, "Você precisa contratar um pacote para ter acesso ao sistema.")
+                    return redirect('pedidos:pedido')
 
-#                 #se o usuario contratou um pacote mas não viu o video, redirecionar ele para o video
-#                 if not usuario.assistiu_video:
-#                     print("redirecionando para vídeo")
-#                     return redirect('video_explicativo')
+                #se o usuario contratou um pacote mas não viu o video, redirecionar ele para o video
+                if not usuario.assistiu_video:
+                    print("redirecionando para vídeo")
+                    return redirect('video_explicativo')
 
-#                 #se o usuario possui pacote e viu o video, mandar ele pra dashboard cliente
-#                 return redirect('index_2')
+                #se o usuario possui pacote e viu o video, mandar ele pra dashboard cliente
+                return redirect('index_2')
 
-#             context = {
-#                 'usuario': usuario,
-#                 'pagina': list(models.DashBoard.objects.all().values())[0],
-#                 'sem_avaliacao': self.request.GET.get('sem_avaliacao'),
-#                 'sem_tempo': self.request.GET.get('sem_tempo'),
-#             }
-#         else:
-#             context = {'pagina': list(models.DashBoard.objects.all().values())[0]}
-#         return render(self.request, self.template_name, context)
+            context = {
+                'usuario': usuario,
+                'pagina': list(models.DashBoard.objects.all().values())[0],
+                'sem_avaliacao': self.request.GET.get('sem_avaliacao'),
+                'sem_tempo': self.request.GET.get('sem_tempo'),
+            }
+        else:
+            context = {'pagina': list(models.DashBoard.objects.all().values())[0]}
+        return render(self.request, self.template_name, context)
 
 class Index_2(TemplateView):
     template_name = 'core/dashboard_cliente.html'
@@ -821,6 +747,9 @@ class Exercicios(Questionario):
             'infos_adicionais': req.get('infos_adicionais'),
         }
 
+        print("📌 POST recebido:", dict(req))
+        print("📦 Dados que vão para update_or_create:", dados)
+
         obj, created = categorias_models.Exercicios.objects.update_or_create(
             user=self.request.user.username,
             defaults=dados
@@ -848,6 +777,7 @@ class Avaliacao(TemplateView):
     template_name = 'core/avaliacao.html'
 
     def get(self, *args, **kwargs):
+        # verificando se o usuario preencheu os dados pessoais
         user = self.request.user.username
         if dict(models.Usuario.objects.filter(usuario=user).values()[0])['dados_pessoais_id'] == None:
             messages.add_message(self.request, messages.ERROR,
@@ -935,6 +865,8 @@ class Avaliacao(TemplateView):
         )
         kcal_simples = kcal
 
+        print(f"⚪ Kcal SEM TREINO: {kcal:.2f}")
+
         treino = 'n'
         if float(exercicios['treino']) != 0.0:
             treino = 's'
@@ -949,7 +881,9 @@ class Avaliacao(TemplateView):
         else:
             print("⚠️ Nenhum treino informado — permanece Kcal base.")
         
-             
+        
+        
+        # criando o plano alimentar
         
         plano = {
             'user': self.request.user.username,
@@ -2264,9 +2198,7 @@ def gerar_pdf(request):
         return HttpResponse("Tipo inválido", status=400)
 
     # ---- generar HTML ----
-    context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
     html_string = render_to_string("core/pdf_template.html", context)
-
 
     # ---- generar PDF ----
     with tempfile.NamedTemporaryFile(delete=False) as output:
@@ -2576,9 +2508,8 @@ class CapaRelatorioView(TemplateView):
     
 
     def _gerar_pdf(self, context):
-        context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
+
         html_string = render_to_string(self.template_name, context)
-        
 
         # --- CSS ---
         css = CSS(string='''
@@ -2598,16 +2529,19 @@ class CapaRelatorioView(TemplateView):
 
         response = HttpResponse(pdf, content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename="relatorio_capa.pdf"'
-        print("TEMPLATE USADO:", self.template_name)
+
         return response
 
 # === Logging para debug controlado (opcional) ===
 logger = logging.getLogger(__name__)
 
 class RelatorioEvolucaoNew(TemplateView):
+
+    # No fijamos template por defecto porque lo definimos según sexo más abajo
     template_name = None
 
     def get(self, *args, **kwargs):
+        # verificando se o usuario preencheu os dados pessoais
         user = self.request.user.username
         idade = user[1]
         
@@ -2859,9 +2793,7 @@ class RelatorioEvolucaoNew(TemplateView):
         return self._gerar_pdf(context)
 
     def _gerar_pdf(self, context):
-        context["static_base"] = f"file://{settings.BASE_DIR}/static/relatorios/"
         html_string = render_to_string(self.template_name, context)
-        
 
         css = CSS(string='''
             @page { size: A4; margin: 20mm; }
