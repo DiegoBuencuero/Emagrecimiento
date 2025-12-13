@@ -2890,5 +2890,5 @@ def descargar_archivo(request):
     ruta = '/app/datos.json'
     if not os.path.exists(ruta):
         raise Http404("Archivo no encontrado")
-    return FileResponse(open(ruta, 'rb'), as_attachment=True)
+    return FileResponse(open(ruta, 'rb'), as_attachment= True)
 
